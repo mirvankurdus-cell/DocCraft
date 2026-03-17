@@ -5,77 +5,84 @@ export default async function handler(req, res) {
   if (req.method === 'OPTIONS') return res.status(200).end();
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
-  const apiKey = process.env.GEMINI_API_KEY;
-  if (!apiKey) return res.status(500).json({ error: 'Clé API Gemini non configurée.' });
+  const apiKey = process.env.GROQ_API_KEY;
+  if (!apiKey) return res.status(500).json({ error: 'Clé API Groq non configurée.' });
 
   const { name, style, colors, tagline } = req.body;
   if (!name) return res.status(400).json({ error: 'Nom manquant.' });
 
   const styleGuides = {
-    modern: 'modern, minimal, clean lines, geometric shapes, sans-serif typography',
-    bold: 'bold, strong, impactful, thick strokes, uppercase letters, powerful',
-    elegant: 'elegant, luxury, thin lines, serif or script typography, sophisticated',
-    playful: 'playful, fun, rounded shapes, vibrant, friendly, approachable',
-    tech: 'tech, futuristic, circuit-like, sharp angles, digital, innovation',
-    nature: 'organic, natural, leaf or wave shapes, eco-friendly, earthy tones',
+    modern: 'modern, minimal, clean geometric shapes, sans-serif',
+    bold: 'bold, strong, thick strokes, uppercase, impactful',
+    elegant: 'elegant, luxury, thin lines, sophisticated',
+    playful: 'playful, fun, rounded shapes, friendly',
+    tech: 'tech, futuristic, sharp angles, digital',
+    nature: 'organic, natural, leaf shapes, eco-friendly',
   };
 
-  const colorGuides = {
-    blue: ['#1A73E8', '#0D47A1', '#E8F0FE'],
-    green: ['#2E7D32', '#1B5E20', '#E8F5E9'],
-    red: ['#C62828', '#B71C1C', '#FFEBEE'],
-    purple: ['#6A1B9A', '#4A148C', '#F3E5F5'],
-    orange: ['#E65100', '#BF360C', '#FFF3E0'],
-    black: ['#212121', '#424242', '#F5F5F5'],
-    gold: ['#F57F17', '#E65100', '#FFF8E1'],
+  const colorMap = {
+    blue: { primary: '#1A73E8', secondary: '#0D47A1', light: '#E8F0FE' },
+    green: { primary: '#2E7D32', secondary: '#1B5E20', light: '#E8F5E9' },
+    red: { primary: '#C62828', secondary: '#B71C1C', light: '#FFEBEE' },
+    purple: { primary: '#6A1B9A', secondary: '#4A148C', light: '#F3E5F5' },
+    orange: { primary: '#E65100', secondary: '#BF360C', light: '#FFF3E0' },
+    black: { primary: '#212121', secondary: '#424242', light: '#F5F5F5' },
+    gold: { primary: '#F57F17', secondary: '#E65100', light: '#FFF8E1' },
   };
 
-  const selectedColors = colorGuides[colors] || colorGuides.blue;
+  const c = colorMap[colors] || colorMap.blue;
   const styleDesc = styleGuides[style] || styleGuides.modern;
 
-  const prompt = `You are a professional logo designer. Create 3 different SVG logo variations for a company called "${name}"${tagline ? ` with tagline "${tagline}"` : ''}.
+  const prompt = `You are a professional SVG logo designer. Create 3 different logo variations for company "${name}"${tagline ? ` with tagline "${tagline}"` : ''}.
 
 Style: ${styleDesc}
-Primary color: ${selectedColors[0]}
-Secondary color: ${selectedColors[1]}
-Background/light color: ${selectedColors[2]}
+Colors: primary=${c.primary}, secondary=${c.secondary}, light=${c.light}
 
-STRICT RULES:
-- Return ONLY a valid JSON array with 3 objects, no markdown, no explanation
-- Each object: { "name": "Variation name", "svg": "complete SVG code", "description": "brief description" }
-- Each SVG must be self-contained, viewBox="0 0 300 150", no external dependencies
-- Include the company name "${name}" as text in each logo
-- Each variation must look completely different (icon + text, text only, emblem, etc.)
+Return ONLY a valid JSON array, no markdown, no explanation:
+[
+  {"name": "Variation 1", "description": "brief description", "svg": "complete SVG string"},
+  {"name": "Variation 2", "description": "brief description", "svg": "complete SVG string"},
+  {"name": "Variation 3", "description": "brief description", "svg": "complete SVG string"}
+]
+
+SVG rules:
+- viewBox="0 0 300 120"
+- Include company name "${name}" as visible text
+- Each variation must look completely different
 - Use only the specified colors
-- Make them professional and realistic
-- SVG must be valid and renderable
+- Valid, renderable SVG only
+- No external resources
 
-Return only the JSON array, starting with [ and ending with ]`;
+Return only the JSON array starting with [ and ending with ]`;
 
   try {
-    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${apiKey}`;
-    const response = await fetch(url, {
+    const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${apiKey}`,
+      },
       body: JSON.stringify({
-        contents: [{ parts: [{ text: prompt }] }],
-        generationConfig: { maxOutputTokens: 4000, temperature: 0.9 },
+        model: 'llama-3.3-70b-versatile',
+        max_tokens: 4000,
+        temperature: 0.9,
+        messages: [{ role: 'user', content: prompt }],
       }),
     });
+
     const data = await response.json();
     if (data.error) return res.status(400).json({ error: data.error.message });
 
-    let text = data.candidates?.[0]?.content?.parts?.[0]?.text || '';
+    let text = data.choices?.[0]?.message?.content || '';
     text = text.replace(/```json|```/g, '').trim();
 
     const startIdx = text.indexOf('[');
     const endIdx = text.lastIndexOf(']');
     if (startIdx === -1 || endIdx === -1) throw new Error('Format JSON invalide');
 
-    const jsonStr = text.substring(startIdx, endIdx + 1);
-    const logos = JSON.parse(jsonStr);
-
+    const logos = JSON.parse(text.substring(startIdx, endIdx + 1));
     return res.status(200).json({ logos });
+
   } catch (err) {
     return res.status(500).json({ error: 'Erreur génération logo : ' + err.message });
   }
