@@ -21,8 +21,6 @@ body{font-family:'DM Sans',sans-serif;background:#FAFAF8;color:#1C1C1A;overflow-
 .nav-cta{background:#1C1C1A;color:#FAFAF8;border:none;padding:8px 18px;border-radius:6px;font-size:13px;font-weight:500;cursor:pointer;font-family:'DM Sans',sans-serif;transition:background .15s}
 .nav-cta:hover{background:#8B6F5E}
 .page{display:none}.page.active{display:block}
-
-/* HERO */
 .hero{display:grid;grid-template-columns:1fr 420px;min-height:calc(100vh - 62px);background:#FAFAF8;border-bottom:0.5px solid #E2DDD8}
 .hero-text{padding:0 48px;display:flex;flex-direction:column;justify-content:center}
 .eyebrow{font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:#8B6F5E;margin-bottom:20px;display:flex;align-items:center;gap:10px}
@@ -38,19 +36,15 @@ body{font-family:'DM Sans',sans-serif;background:#FAFAF8;color:#1C1C1A;overflow-
 .hero-note{font-size:12px;color:#8B6F5E;display:flex;align-items:center;gap:7px}
 .hero-note::before{content:'';display:inline-block;width:7px;height:7px;border-radius:50%;background:#8B6F5E}
 .hero-vis{background:#EDE7E0;display:flex;align-items:center;justify-content:center;position:relative;padding:40px 32px;flex-direction:column;gap:12px}
-.hero-tool-preview{background:#fff;border-radius:8px;padding:12px 16px;width:260px;border:.5px solid #D8D0C8;font-size:12px;color:#6B6560}
+.hero-tool-preview{background:#fff;border-radius:8px;padding:12px 16px;width:260px;border:.5px solid #D8D0C8}
 .htp-label{font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:#8B6F5E;margin-bottom:6px}
 .htp-bar{height:6px;border-radius:3px;background:#EDE7E0;margin-bottom:4px}
 .htp-bar.dk{background:#C8B4A8}
-
-/* STATS */
 .stats{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:.5px solid #E2DDD8;background:#1C1C1A}
 .stat{padding:28px 40px;border-right:.5px solid #3C3C3A}.stat:last-child{border-right:none}
 .stat-num{font-family:'Playfair Display',serif;font-size:32px;font-weight:400;color:#FAFAF8;margin-bottom:4px}
 .stat-num span{color:#8B6F5E}
 .stat-label{font-size:12px;color:#A09890}
-
-/* TOOLS GRID */
 .tools-section{padding:72px 48px;background:#fff;border-bottom:.5px solid #E2DDD8}
 .sec-label{font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:#8B6F5E;margin-bottom:10px;display:flex;align-items:center;gap:10px}
 .sec-label::before{content:'';display:inline-block;width:28px;height:1px;background:#8B6F5E}
@@ -64,8 +58,6 @@ body{font-family:'DM Sans',sans-serif;background:#FAFAF8;color:#1C1C1A;overflow-
 .tags{display:flex;gap:5px;flex-wrap:wrap}
 .tag{font-size:11px;padding:3px 9px;background:#EDE7E0;color:#6B5040;border-radius:20px}
 .tag.new{background:#E8F5E9;color:#2E7D32}
-
-/* TOOL PAGES */
 .tool-page{padding:40px 48px}
 .tool-page h2{font-family:'Playfair Display',serif;font-size:26px;font-weight:400;color:#1C1C1A;margin-bottom:5px}
 .tp-sub{font-size:13px;color:#6B6560;margin-bottom:28px}
@@ -82,11 +74,23 @@ body{font-family:'DM Sans',sans-serif;background:#FAFAF8;color:#1C1C1A;overflow-
 .fl input,.fl textarea,.fl select{padding:9px 12px;border:.5px solid #E2DDD8;border-radius:6px;background:#FAFAF8;color:#1C1C1A;font-size:13px;font-family:'DM Sans',sans-serif;outline:none;transition:border-color .15s;width:100%}
 .fl input:focus,.fl textarea:focus,.fl select:focus{border-color:#8B6F5E}
 .fl textarea{min-height:80px;resize:vertical}
-.cv-lang-row{display:flex;align-items:center;gap:10px;padding:9px 12px;background:#F5F2EF;border-radius:8px;border:.5px solid #E2DDD8;flex-wrap:wrap;grid-column:1/-1}
-.cll{font-size:11px;color:#6B6560;text-transform:uppercase;letter-spacing:.06em;flex-shrink:0}
-.clopts{display:flex;gap:5px;flex-wrap:wrap}
-.clopt{padding:5px 14px;border:.5px solid #E2DDD8;border-radius:20px;cursor:pointer;font-size:13px;background:#fff;font-family:'DM Sans',sans-serif;color:#1C1C1A;transition:all .12s}
-.clopt.on{background:#1C1C1A;color:#FAFAF8;border-color:#1C1C1A}
+.row-opts{display:flex;align-items:center;gap:10px;padding:9px 12px;background:#F5F2EF;border-radius:8px;border:.5px solid #E2DDD8;flex-wrap:wrap;grid-column:1/-1}
+.row-lbl{font-size:11px;color:#6B6560;text-transform:uppercase;letter-spacing:.06em;flex-shrink:0}
+.opts{display:flex;gap:5px;flex-wrap:wrap}
+.opt{padding:5px 14px;border:.5px solid #E2DDD8;border-radius:20px;cursor:pointer;font-size:13px;background:#fff;font-family:'DM Sans',sans-serif;color:#1C1C1A;transition:all .12s}
+.opt.on{background:#1C1C1A;color:#FAFAF8;border-color:#1C1C1A}
+/* CV Templates */
+.cv-templates{grid-column:1/-1;display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.cv-tpl{border:.5px solid #E2DDD8;border-radius:8px;overflow:hidden;cursor:pointer;transition:all .12s}
+.cv-tpl:hover{border-color:#8B6F5E;transform:translateY(-2px)}
+.cv-tpl.on{border-color:#1C1C1A;border-width:2px}
+.cv-tpl-preview{height:80px;display:flex;align-items:center;justify-content:center;font-size:10px;color:#6B6560;position:relative;overflow:hidden}
+.cv-tpl-label{padding:6px 8px;font-size:11px;font-weight:500;text-align:center;border-top:.5px solid #E2DDD8;background:#FAFAF8;color:#1C1C1A}
+/* Template previews */
+.tpl-modern{background:#fff}
+.tpl-classic{background:#F5F0E8}
+.tpl-minimal{background:#FAFAF8}
+.tpl-dark{background:#1C1C1A}
 .photo-row{grid-column:1/-1;display:flex;align-items:center;gap:14px;padding:12px;background:#F5F2EF;border-radius:8px;border:.5px solid #E2DDD8}
 .photo-circle{width:60px;height:60px;border-radius:50%;background:#EDE7E0;border:1.5px dashed #C8B4A8;display:flex;align-items:center;justify-content:center;flex-shrink:0;overflow:hidden;cursor:pointer}
 .photo-circle:hover{border-color:#8B6F5E}
@@ -105,6 +109,43 @@ input[type=file]{display:none}
 .res-meta{display:flex;align-items:center;gap:8px}
 .copy-btn{font-size:12px;color:#6B6560;background:transparent;border:.5px solid #E2DDD8;padding:4px 9px;border-radius:6px;cursor:pointer;font-family:'DM Sans',sans-serif}
 .copy-btn:hover{background:#FAFAF8}
+
+/* CV Template Styles */
+.cv-modern{font-family:Arial,sans-serif;color:#1C1C1A}
+.cv-modern h1{font-size:24px;color:#1C1C1A;border-bottom:2px solid #8B6F5E;padding-bottom:8px;margin-bottom:6px}
+.cv-modern h2{font-size:14px;text-transform:uppercase;letter-spacing:2px;color:#8B6F5E;margin:16px 0 6px;border-bottom:.5px solid #E2DDD8;padding-bottom:4px}
+.cv-modern .contact{font-size:12px;color:#6B6560;margin-bottom:4px}
+.cv-modern ul{padding-left:16px;margin:4px 0}
+.cv-modern li{font-size:13px;margin-bottom:3px;color:#555}
+.cv-modern p{font-size:13px;color:#555;line-height:1.6;margin-bottom:4px}
+.cv-modern strong{color:#1C1C1A}
+
+.cv-classic{font-family:Georgia,serif;color:#2C2416;background:#FFFEF8}
+.cv-classic h1{font-size:26px;text-align:center;color:#2C2416;margin-bottom:4px}
+.cv-classic h2{font-size:13px;text-transform:uppercase;letter-spacing:3px;color:#8B6F5E;margin:14px 0 6px;text-align:center}
+.cv-classic hr{border:.5px solid #D4C4A8;margin:8px 0}
+.cv-classic .contact{font-size:12px;color:#6B5C3E;text-align:center;margin-bottom:3px}
+.cv-classic ul{padding-left:16px;margin:4px 0}
+.cv-classic li{font-size:13px;margin-bottom:3px;color:#4A3C28}
+.cv-classic p{font-size:13px;color:#4A3C28;line-height:1.65;margin-bottom:4px}
+
+.cv-minimal{font-family:'DM Sans',Arial,sans-serif;color:#1C1C1A}
+.cv-minimal h1{font-size:20px;font-weight:500;color:#1C1C1A;margin-bottom:4px}
+.cv-minimal h2{font-size:11px;text-transform:uppercase;letter-spacing:3px;color:#A09890;margin:14px 0 5px}
+.cv-minimal .contact{font-size:12px;color:#A09890;margin-bottom:2px}
+.cv-minimal ul{padding-left:14px;margin:4px 0;list-style:none}
+.cv-minimal li{font-size:13px;margin-bottom:4px;color:#555;padding-left:8px;border-left:2px solid #E2DDD8}
+.cv-minimal p{font-size:13px;color:#555;line-height:1.6;margin-bottom:4px}
+
+.cv-dark{font-family:Arial,sans-serif;color:#FAFAF8;background:#1C1C1A;padding:20px;border-radius:8px}
+.cv-dark h1{font-size:22px;color:#FAFAF8;margin-bottom:4px}
+.cv-dark h2{font-size:12px;text-transform:uppercase;letter-spacing:2px;color:#8B6F5E;margin:14px 0 5px;border-bottom:.5px solid #3C3C3A;padding-bottom:3px}
+.cv-dark .contact{font-size:12px;color:#A09890;margin-bottom:3px}
+.cv-dark ul{padding-left:16px;margin:4px 0}
+.cv-dark li{font-size:13px;margin-bottom:3px;color:#C8C0B8}
+.cv-dark p{font-size:13px;color:#C8C0B8;line-height:1.6;margin-bottom:4px}
+.cv-dark strong{color:#FAFAF8}
+
 .result-body{font-size:13px;line-height:1.75;color:#555}
 .result-body h1,.result-body h2,.result-body h3{color:#1C1C1A;font-weight:500;margin:10px 0 5px}
 .result-body h1{font-size:15px}
@@ -118,53 +159,40 @@ input[type=file]{display:none}
 .empty-icon{width:44px;height:44px;border-radius:50%;background:#F5F2EF;display:flex;align-items:center;justify-content:center}
 .spin{display:inline-block;width:15px;height:15px;border:2px solid #E2DDD8;border-top-color:#8B6F5E;border-radius:50%;animation:sp .7s linear infinite}
 @keyframes sp{to{transform:rotate(360deg)}}
-
-/* LOGO SPECIFIC */
 .logo-styles{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;grid-column:1/-1}
 .style-opt{border:.5px solid #E2DDD8;border-radius:8px;padding:10px;cursor:pointer;text-align:center;transition:all .12s;background:#FAFAF8}
 .style-opt:hover{border-color:#8B6F5E}
 .style-opt.on{border-color:#1C1C1A;background:#1C1C1A;color:#FAFAF8}
-.style-opt .so-icon{font-size:20px;margin-bottom:4px}
+.style-opt .so-icon{font-size:18px;margin-bottom:3px}
 .style-opt .so-name{font-size:12px;font-weight:500}
-.style-opt .so-desc{font-size:10px;color:#A09890;margin-top:2px}
+.style-opt .so-desc{font-size:10px;color:#A09890;margin-top:1px}
 .style-opt.on .so-desc{color:#C8B4A8}
 .color-opts{display:flex;gap:6px;flex-wrap:wrap;grid-column:1/-1}
-.color-dot{width:32px;height:32px;border-radius:50%;cursor:pointer;border:2px solid transparent;transition:all .12s;flex-shrink:0}
+.color-dot{width:30px;height:30px;border-radius:50%;cursor:pointer;border:2px solid transparent;transition:all .12s;flex-shrink:0}
 .color-dot.on{border-color:#1C1C1A;transform:scale(1.15)}
 .logos-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .logo-card{border:.5px solid #E2DDD8;border-radius:10px;overflow:hidden;background:#FAFAF8}
 .logo-card.full{grid-column:1/-1}
-.logo-preview{padding:20px;display:flex;align-items:center;justify-content:center;min-height:120px;background:#fff}
-.logo-preview svg{max-width:100%;max-height:120px}
-.logo-meta{padding:10px 12px;border-top:.5px solid #E2DDD8;display:flex;justify-content:space-between;align-items:center}
+.logo-preview{padding:16px;display:flex;align-items:center;justify-content:center;min-height:100px;background:#fff}
+.logo-preview svg{max-width:100%;max-height:100px}
+.logo-meta{padding:8px 12px;border-top:.5px solid #E2DDD8;display:flex;justify-content:space-between;align-items:center}
 .logo-name{font-size:12px;font-weight:500;color:#1C1C1A}
-.logo-desc{font-size:11px;color:#A09890;margin-top:2px}
-.dl-btn{padding:5px 10px;background:#1C1C1A;color:#FAFAF8;border:none;border-radius:5px;font-size:11px;cursor:pointer;font-family:'DM Sans',sans-serif}
+.logo-desc{font-size:11px;color:#A09890}
+.dl-btn{padding:4px 10px;background:#1C1C1A;color:#FAFAF8;border:none;border-radius:5px;font-size:11px;cursor:pointer;font-family:'DM Sans',sans-serif}
 .dl-btn:hover{background:#8B6F5E}
-
-/* SOCIAL SPECIFIC */
 .platform-tabs{display:flex;gap:6px;flex-wrap:wrap;grid-column:1/-1}
-.ptab{padding:7px 16px;border:.5px solid #E2DDD8;border-radius:20px;cursor:pointer;font-size:13px;background:#fff;font-family:'DM Sans',sans-serif;color:#1C1C1A;transition:all .12s;display:flex;align-items:center;gap:6px}
+.ptab{padding:7px 14px;border:.5px solid #E2DDD8;border-radius:20px;cursor:pointer;font-size:13px;background:#fff;font-family:'DM Sans',sans-serif;color:#1C1C1A;transition:all .12s;display:flex;align-items:center;gap:5px}
 .ptab.on{background:#1C1C1A;color:#FAFAF8;border-color:#1C1C1A}
-.ptab svg{flex-shrink:0}
-.post-results{display:flex;flex-direction:column;gap:12px}
-.post-card{border:.5px solid #E2DDD8;border-radius:10px;overflow:hidden}
-.post-card-header{padding:10px 14px;background:#F5F2EF;display:flex;align-items:center;justify-content:space-between;border-bottom:.5px solid #E2DDD8}
-.post-platform{font-size:12px;font-weight:500;color:#1C1C1A;display:flex;align-items:center;gap:6px}
-.post-content{padding:14px;font-size:13px;line-height:1.65;color:#555;white-space:pre-wrap}
-
-/* YOUTUBE SPECIFIC */
-.yt-preview{background:#F5F2EF;border-radius:8px;padding:14px;display:flex;align-items:center;gap:12px;margin-bottom:14px;display:none}
+.post-card{border:.5px solid #E2DDD8;border-radius:10px;overflow:hidden;margin-bottom:10px}
+.post-card-header{padding:9px 14px;background:#F5F2EF;display:flex;align-items:center;justify-content:space-between;border-bottom:.5px solid #E2DDD8}
+.post-platform{font-size:12px;font-weight:500;color:#1C1C1A}
+.post-content{padding:12px 14px;font-size:13px;line-height:1.65;color:#555;white-space:pre-wrap}
+.yt-preview{background:#F5F2EF;border-radius:8px;padding:12px;display:flex;align-items:center;gap:12px;margin-bottom:12px;display:none}
 .yt-thumb{width:80px;height:56px;border-radius:6px;background:#E2DDD8;overflow:hidden;flex-shrink:0}
 .yt-thumb img{width:100%;height:100%;object-fit:cover}
-.yt-info .yt-title{font-size:13px;font-weight:500;color:#1C1C1A;margin-bottom:3px}
+.yt-info .yt-title{font-size:13px;font-weight:500;color:#1C1C1A;margin-bottom:2px}
 .yt-info .yt-id{font-size:11px;color:#A09890}
-
-/* DISCLAIMER */
-.disclaimer{background:#FFF8EC;border:.5px solid #FAC775;border-radius:8px;padding:12px 16px;font-size:12px;color:#633806;line-height:1.6;margin-bottom:16px;grid-column:1/-1}
-.disclaimer strong{color:#412402}
-
-/* ABOUT */
+.disclaimer{background:#FFF8EC;border:.5px solid #FAC775;border-radius:8px;padding:10px 14px;font-size:12px;color:#633806;line-height:1.6;margin-bottom:14px;grid-column:1/-1}
 .about-page{padding:56px 48px;max-width:760px}
 .about-page h2{font-family:'Playfair Display',serif;font-size:30px;font-weight:400;color:#1C1C1A;margin-bottom:18px}
 .about-page p{font-size:14px;color:#6B6560;line-height:1.8;margin-bottom:16px}
@@ -173,31 +201,24 @@ input[type=file]{display:none}
 .about-card .ac-icon{width:34px;height:34px;background:#EDE7E0;border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:10px}
 .about-card h3{font-size:14px;font-weight:500;color:#1C1C1A;margin-bottom:5px}
 .about-card p{font-size:13px;color:#6B6560;line-height:1.6;margin:0}
-
 .toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%) translateY(40px);background:#1C1C1A;color:#FAFAF8;padding:9px 18px;border-radius:6px;font-size:13px;opacity:0;transition:all .2s;z-index:999;pointer-events:none}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 footer{padding:28px 48px;background:#FAFAF8;border-top:.5px solid #E2DDD8;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
 .foot-logo{font-family:'Playfair Display',serif;font-size:15px;color:#1C1C1A}
 .foot-logo span{color:#8B6F5E}
 .foot-note{font-size:12px;color:#A09890}
-
-@media(max-width:960px){
-  .tgrid{grid-template-columns:1fr 1fr}
-  .logo-styles{grid-template-columns:1fr 1fr}
-}
-@media(max-width:700px){
+@media(max-width:900px){
   .hero{grid-template-columns:1fr}.hero-vis{display:none}
-  .tgrid,.form-grid,.about-grid,.logos-grid{grid-template-columns:1fr}
+  .tgrid,.form-grid,.about-grid,.logos-grid,.cv-templates{grid-template-columns:1fr 1fr}
   .tool-layout{grid-template-columns:1fr}
   .stats{grid-template-columns:1fr 1fr}
   .nav,.hero-text,.tools-section,.tool-page,.about-page{padding-left:18px;padding-right:18px}
-  .logo-styles{grid-template-columns:1fr 1fr 1fr}
 }
+@media(max-width:500px){.tgrid,.cv-templates{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav class="nav">
   <div class="logo" onclick="showPage('home')">Doc<span>Craft</span></div>
   <div class="nav-right">
@@ -206,19 +227,19 @@ footer{padding:28px 48px;background:#FAFAF8;border-top:.5px solid #E2DDD8;displa
       <button class="ls" onclick="setLang('en',this)">EN</button>
       <button class="ls" onclick="setLang('de',this)">DE</button>
     </div>
-    <span class="nav-link" id="nl-tools" onclick="document.getElementById('sec-tools').scrollIntoView({behavior:'smooth'});showPage('home')">Outils</span>
+    <span class="nav-link" id="nl-tools" onclick="showPage('home');setTimeout(()=>document.getElementById('sec-tools').scrollIntoView({behavior:'smooth'}),100)">Outils</span>
     <span class="nav-link" id="nl-about" onclick="showPage('about')">À propos</span>
     <button class="nav-cta" id="nl-cta" onclick="showPage('cv')">Commencer</button>
   </div>
 </nav>
 
-<!-- ══════════ HOME ══════════ -->
+<!-- HOME -->
 <div id="pg-home" class="page active">
   <div class="hero">
     <div class="hero-text">
       <div class="eyebrow" id="h-ey">6 outils IA en une seule plateforme</div>
       <h1 id="h-t">Créez, résumez,<br><em>publiez en<br>quelques secondes.</em></h1>
-      <p class="hero-sub" id="h-s">CV, logos, posts réseaux sociaux, résumés YouTube — tout ce dont vous avez besoin, propulsé par l'IA.</p>
+      <p class="hero-sub" id="h-s">CV, logos, posts réseaux sociaux, résumés YouTube — tout ce dont vous avez besoin.</p>
       <div class="hero-btns">
         <button class="btn-dark" id="h-b1" onclick="showPage('cv')">Générer un CV</button>
         <button class="btn-ghost" id="h-b2" onclick="showPage('logo')">Créer un logo</button>
@@ -226,102 +247,85 @@ footer{padding:28px 48px;background:#FAFAF8;border-top:.5px solid #E2DDD8;displa
       <p class="hero-note" id="h-n">100% gratuit · Aucun compte requis</p>
     </div>
     <div class="hero-vis">
-      <div class="hero-tool-preview">
-        <div class="htp-label">CV Generator</div>
-        <div class="htp-bar dk" style="width:70%"></div>
-        <div class="htp-bar" style="width:90%"></div>
-        <div class="htp-bar" style="width:60%"></div>
-      </div>
-      <div class="hero-tool-preview">
-        <div class="htp-label">Logo Generator</div>
-        <div style="display:flex;gap:6px;margin-top:4px">
-          <div style="width:40px;height:30px;background:#EDE7E0;border-radius:4px"></div>
-          <div style="width:40px;height:30px;background:#C8B4A8;border-radius:4px"></div>
-          <div style="width:40px;height:30px;background:#E2DDD8;border-radius:4px"></div>
-        </div>
-      </div>
-      <div class="hero-tool-preview">
-        <div class="htp-label">Social Posts</div>
-        <div class="htp-bar dk" style="width:85%"></div>
-        <div class="htp-bar" style="width:65%"></div>
-      </div>
+      <div class="hero-tool-preview"><div class="htp-label">CV Generator</div><div class="htp-bar dk" style="width:70%"></div><div class="htp-bar" style="width:90%"></div><div class="htp-bar" style="width:60%"></div></div>
+      <div class="hero-tool-preview"><div class="htp-label">Logo Generator</div><div style="display:flex;gap:6px;margin-top:4px"><div style="width:40px;height:28px;background:#EDE7E0;border-radius:4px"></div><div style="width:40px;height:28px;background:#C8B4A8;border-radius:4px"></div><div style="width:40px;height:28px;background:#E2DDD8;border-radius:4px"></div></div></div>
+      <div class="hero-tool-preview"><div class="htp-label">Social Posts</div><div class="htp-bar dk" style="width:85%"></div><div class="htp-bar" style="width:65%"></div></div>
     </div>
   </div>
-
   <div class="stats">
     <div class="stat"><div class="stat-num">6<span>×</span></div><div class="stat-label" id="st1">Outils IA disponibles</div></div>
-    <div class="stat"><div class="stat-num">3<span>+</span></div><div class="stat-label" id="st2">Langues supportées</div></div>
+    <div class="stat"><div class="stat-num">4<span>+</span></div><div class="stat-label" id="st2">Modèles de CV</div></div>
     <div class="stat"><div class="stat-num">30<span>s</span></div><div class="stat-label" id="st3">Pour générer un document</div></div>
     <div class="stat"><div class="stat-num">0<span>€</span></div><div class="stat-label" id="st4">Pour commencer</div></div>
   </div>
-
   <div class="tools-section" id="sec-tools">
     <div class="sec-label" id="f-label">Tous nos outils</div>
     <div class="sec-title" id="f-title">Six outils, une seule plateforme</div>
     <div class="tgrid">
-      <div class="tc" onclick="showPage('cv')">
-        <div class="tic"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="3" y="2" width="14" height="16" rx="2" stroke="#8B6F5E" stroke-width="1.2"/><path d="M6 7h8M6 10h8M6 13h5" stroke="#8B6F5E" stroke-width="1.2" stroke-linecap="round"/></svg></div>
-        <div class="tn" id="t1n">Générateur de CV</div>
-        <div class="td" id="t1d">CV professionnel structuré dans la langue de votre choix.</div>
-        <div class="tags"><span class="tag">PDF</span><span class="tag">3 langues</span></div>
-      </div>
-      <div class="tc" onclick="showPage('pdf')">
-        <div class="tic"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="3" y="2" width="14" height="16" rx="2" stroke="#8B6F5E" stroke-width="1.2"/><path d="M6 7h8M6 10h5" stroke="#8B6F5E" stroke-width="1.2" stroke-linecap="round"/><circle cx="14" cy="14" r="3.5" fill="#FAFAF8" stroke="#8B6F5E" stroke-width="1.2"/></svg></div>
-        <div class="tn" id="t2n">Résumé de texte</div>
-        <div class="td" id="t2d">Points clés et mots-clés extraits de n'importe quel texte.</div>
-        <div class="tags"><span class="tag">Points clés</span><span class="tag">Mots-clés</span></div>
-      </div>
-      <div class="tc" onclick="showPage('logo')">
-        <div class="tic"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="7" stroke="#8B6F5E" stroke-width="1.2"/><path d="M7 10l2 2 4-4" stroke="#8B6F5E" stroke-width="1.2" stroke-linecap="round"/></svg></div>
-        <div class="tn" id="t3n">Générateur de logos</div>
-        <div class="td" id="t3d">3 variations de logos SVG pour votre marque, téléchargeables.</div>
-        <div class="tags"><span class="tag new">Nouveau</span><span class="tag">SVG</span><span class="tag">6 styles</span></div>
-      </div>
-      <div class="tc" onclick="showPage('social')">
-        <div class="tic"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 12c0-3.31 2.69-6 6-6s6 2.69 6 6-2.69 6-6 6" stroke="#8B6F5E" stroke-width="1.2"/><circle cx="10" cy="6" r="2" stroke="#8B6F5E" stroke-width="1.2"/><path d="M7 18l3-6 3 6" stroke="#8B6F5E" stroke-width="1.2" stroke-linecap="round"/></svg></div>
-        <div class="tn" id="t4n">Posts réseaux sociaux</div>
-        <div class="td" id="t4d">Instagram, LinkedIn, Twitter/X et scripts TikTok générés automatiquement.</div>
-        <div class="tags"><span class="tag new">Nouveau</span><span class="tag">4 plateformes</span></div>
-      </div>
-      <div class="tc" onclick="showPage('youtube')">
-        <div class="tic"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="2" y="5" width="16" height="11" rx="3" stroke="#8B6F5E" stroke-width="1.2"/><path d="M8 8.5l4 2-4 2V8.5z" fill="#8B6F5E"/></svg></div>
-        <div class="tn" id="t5n">Résumé YouTube</div>
-        <div class="td" id="t5d">Collez un lien YouTube — obtenez résumé, points clés et notes.</div>
-        <div class="tags"><span class="tag new">Nouveau</span><span class="tag">Transcription</span></div>
-      </div>
-      <div class="tc" onclick="showPage('about')" style="background:#F5F2EF">
-        <div class="tic" style="background:#E8DDD4"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="7" stroke="#8B6F5E" stroke-width="1.2"/><path d="M10 9v5M10 7.5v.5" stroke="#8B6F5E" stroke-width="1.4" stroke-linecap="round"/></svg></div>
-        <div class="tn" id="t6n">À propos & conformité</div>
-        <div class="td" id="t6d">Politique de données, droits d'auteur, conformité RGPD et conditions d'utilisation.</div>
-        <div class="tags"><span class="tag">RGPD</span><span class="tag">Légal</span></div>
-      </div>
+      <div class="tc" onclick="showPage('cv')"><div class="tic"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="3" y="2" width="14" height="16" rx="2" stroke="#8B6F5E" stroke-width="1.2"/><path d="M6 7h8M6 10h8M6 13h5" stroke="#8B6F5E" stroke-width="1.2" stroke-linecap="round"/></svg></div><div class="tn" id="t1n">Générateur de CV</div><div class="td" id="t1d">4 modèles professionnels. CV dans la langue de votre choix.</div><div class="tags"><span class="tag">4 modèles</span><span class="tag">3 langues</span></div></div>
+      <div class="tc" onclick="showPage('pdf')"><div class="tic"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="3" y="2" width="14" height="16" rx="2" stroke="#8B6F5E" stroke-width="1.2"/><path d="M6 7h8M6 10h5" stroke="#8B6F5E" stroke-width="1.2" stroke-linecap="round"/><circle cx="14" cy="14" r="3.5" fill="#FAFAF8" stroke="#8B6F5E" stroke-width="1.2"/></svg></div><div class="tn" id="t2n">Résumé de texte</div><div class="td" id="t2d">Résumé concis, points clés et mots-clés en quelques secondes.</div><div class="tags"><span class="tag">Points clés</span><span class="tag">Mots-clés</span></div></div>
+      <div class="tc" onclick="showPage('logo')"><div class="tic"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="7" stroke="#8B6F5E" stroke-width="1.2"/><path d="M7 10l2 2 4-4" stroke="#8B6F5E" stroke-width="1.2" stroke-linecap="round"/></svg></div><div class="tn" id="t3n">Générateur de logos</div><div class="td" id="t3d">3 variations SVG téléchargeables pour votre marque.</div><div class="tags"><span class="tag new">Nouveau</span><span class="tag">SVG</span><span class="tag">6 styles</span></div></div>
+      <div class="tc" onclick="showPage('social')"><div class="tic"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="5" cy="10" r="2" stroke="#8B6F5E" stroke-width="1.2"/><circle cx="15" cy="5" r="2" stroke="#8B6F5E" stroke-width="1.2"/><circle cx="15" cy="15" r="2" stroke="#8B6F5E" stroke-width="1.2"/><path d="M7 9l6-3M7 11l6 3" stroke="#8B6F5E" stroke-width="1.2"/></svg></div><div class="tn" id="t4n">Posts réseaux sociaux</div><div class="td" id="t4d">Instagram, LinkedIn, Twitter/X et scripts TikTok.</div><div class="tags"><span class="tag new">Nouveau</span><span class="tag">4 plateformes</span></div></div>
+      <div class="tc" onclick="showPage('youtube')"><div class="tic"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="2" y="5" width="16" height="11" rx="3" stroke="#8B6F5E" stroke-width="1.2"/><path d="M8 8.5l4 2-4 2V8.5z" fill="#8B6F5E"/></svg></div><div class="tn" id="t5n">Résumé YouTube</div><div class="td" id="t5d">Collez un lien YouTube — résumé, points clés et notes.</div><div class="tags"><span class="tag new">Nouveau</span><span class="tag">Transcription</span></div></div>
+      <div class="tc" onclick="showPage('about')" style="background:#F5F2EF"><div class="tic" style="background:#E8DDD4"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="7" stroke="#8B6F5E" stroke-width="1.2"/><path d="M10 9v5M10 7.5v.5" stroke="#8B6F5E" stroke-width="1.4" stroke-linecap="round"/></svg></div><div class="tn" id="t6n">À propos & conformité</div><div class="td" id="t6d">RGPD, droits d'auteur, conformité légale.</div><div class="tags"><span class="tag">RGPD</span><span class="tag">Légal</span></div></div>
     </div>
   </div>
-
   <footer>
     <div class="foot-logo">Doc<span>Craft</span></div>
-    <div class="foot-note" id="ft-n">Propulsé par Google Gemini · 100% gratuit · Aucune donnée conservée · RGPD</div>
+    <div class="foot-note" id="ft-n">Propulsé par Groq + Llama · 100% gratuit · Aucune donnée conservée</div>
     <div class="foot-note">© 2026 DocCraft</div>
   </footer>
 </div>
 
-<!-- ══════════ CV PAGE ══════════ -->
+<!-- CV PAGE -->
 <div id="pg-cv" class="page">
   <div class="tool-page">
     <button class="back-btn" onclick="showPage('home')" id="cv-back">Retour</button>
     <h2 id="cv-h">Générateur de CV</h2>
-    <p class="tp-sub" id="cv-sub">Renseignez vos informations et obtenez un CV professionnel instantanément.</p>
+    <p class="tp-sub" id="cv-sub">Choisissez un modèle, renseignez vos informations — obtenez un CV professionnel instantanément.</p>
     <div class="tool-layout">
       <div class="form-card">
         <div class="form-grid">
-          <div class="cv-lang-row">
-            <span class="cll" id="cvl-lbl">CV rédigé en :</span>
-            <div class="clopts">
-              <button class="clopt on" onclick="setCVL('fr',this)" id="cvl-fr">Français</button>
-              <button class="clopt" onclick="setCVL('en',this)" id="cvl-en">English</button>
-              <button class="clopt" onclick="setCVL('de',this)" id="cvl-de">Deutsch</button>
+          <!-- CV Templates -->
+          <div class="fg-full">
+            <div class="fl" style="margin-bottom:10px"><label id="lf-tpl">Modèle de CV</label></div>
+            <div class="cv-templates">
+              <div class="cv-tpl on" onclick="setCVTpl('modern',this)">
+                <div class="cv-tpl-preview tpl-modern">
+                  <svg width="60" height="70" viewBox="0 0 60 70"><rect x="5" y="5" width="50" height="60" rx="2" fill="#fff" stroke="#E2DDD8"/><rect x="10" y="12" width="25" height="3" rx="1" fill="#1C1C1A"/><rect x="10" y="18" width="15" height="2" rx="1" fill="#8B6F5E"/><line x1="10" y1="24" x2="50" y2="24" stroke="#8B6F5E" stroke-width=".5"/><rect x="10" y="28" width="35" height="2" rx="1" fill="#E2DDD8"/><rect x="10" y="33" width="30" height="2" rx="1" fill="#E2DDD8"/><rect x="10" y="38" width="35" height="2" rx="1" fill="#E2DDD8"/><rect x="10" y="45" width="20" height="2" rx="1" fill="#8B6F5E"/><rect x="10" y="50" width="35" height="2" rx="1" fill="#E2DDD8"/><rect x="10" y="55" width="28" height="2" rx="1" fill="#E2DDD8"/></svg>
+                </div>
+                <div class="cv-tpl-label" id="tpl-modern">Moderne</div>
+              </div>
+              <div class="cv-tpl" onclick="setCVTpl('classic',this)">
+                <div class="cv-tpl-preview tpl-classic">
+                  <svg width="60" height="70" viewBox="0 0 60 70"><rect x="5" y="5" width="50" height="60" rx="1" fill="#F5F0E8" stroke="#D4C4A8"/><rect x="10" y="12" width="40" height="3" rx="1" fill="#2C2416"/><line x1="15" y1="18" x2="45" y2="18" stroke="#8B6F5E" stroke-width=".5"/><rect x="15" y="22" width="30" height="2" rx="1" fill="#8B7058"/><line x1="10" y1="27" x2="50" y2="27" stroke="#D4C4A8" stroke-width=".5"/><rect x="10" y="31" width="35" height="2" rx="1" fill="#8B7058"/><rect x="10" y="36" width="30" height="2" rx="1" fill="#C8B49A"/><rect x="10" y="43" width="35" height="2" rx="1" fill="#8B7058"/><rect x="10" y="48" width="28" height="2" rx="1" fill="#C8B49A"/><rect x="10" y="53" width="32" height="2" rx="1" fill="#C8B49A"/></svg>
+                </div>
+                <div class="cv-tpl-label" id="tpl-classic">Classique</div>
+              </div>
+              <div class="cv-tpl" onclick="setCVTpl('minimal',this)">
+                <div class="cv-tpl-preview tpl-minimal">
+                  <svg width="60" height="70" viewBox="0 0 60 70"><rect x="5" y="5" width="50" height="60" rx="2" fill="#FAFAF8" stroke="#E2DDD8"/><rect x="10" y="12" width="22" height="3" rx="1" fill="#1C1C1A"/><rect x="10" y="18" width="12" height="1.5" rx="1" fill="#A09890"/><rect x="10" y="26" width="8" height="1.5" rx="1" fill="#A09890"/><rect x="10" y="30" width="35" height="2" rx="1" fill="#E2DDD8"/><rect x="12" y="34" width="2" height="8" rx="1" fill="#E2DDD8"/><rect x="17" y="35" width="28" height="2" rx="1" fill="#E2DDD8"/><rect x="17" y="39" width="22" height="2" rx="1" fill="#E2DDD8"/><rect x="10" y="47" width="8" height="1.5" rx="1" fill="#A09890"/><rect x="10" y="51" width="35" height="2" rx="1" fill="#E2DDD8"/><rect x="10" y="55" width="28" height="2" rx="1" fill="#E2DDD8"/></svg>
+                </div>
+                <div class="cv-tpl-label" id="tpl-minimal">Minimaliste</div>
+              </div>
+              <div class="cv-tpl" onclick="setCVTpl('dark',this)">
+                <div class="cv-tpl-preview tpl-dark">
+                  <svg width="60" height="70" viewBox="0 0 60 70"><rect x="5" y="5" width="50" height="60" rx="2" fill="#1C1C1A"/><rect x="10" y="12" width="25" height="3" rx="1" fill="#FAFAF8"/><rect x="10" y="18" width="15" height="1.5" rx="1" fill="#8B6F5E"/><line x1="10" y1="23" x2="50" y2="23" stroke="#3C3C3A" stroke-width=".5"/><rect x="10" y="27" width="35" height="2" rx="1" fill="#3C3C3A"/><rect x="10" y="32" width="28" height="2" rx="1" fill="#3C3C3A"/><rect x="10" y="39" width="15" height="1.5" rx="1" fill="#8B6F5E"/><rect x="10" y="43" width="35" height="2" rx="1" fill="#3C3C3A"/><rect x="10" y="48" width="30" height="2" rx="1" fill="#3C3C3A"/><rect x="10" y="55" width="25" height="2" rx="1" fill="#3C3C3A"/></svg>
+                </div>
+                <div class="cv-tpl-label" style="background:#2C2C2A;color:#FAFAF8;border-top-color:#3C3C3A" id="tpl-dark">Sombre</div>
+              </div>
             </div>
           </div>
+          <!-- CV Lang -->
+          <div class="row-opts">
+            <span class="row-lbl" id="cvl-lbl">CV en :</span>
+            <div class="opts">
+              <button class="opt on" onclick="setCVL('fr',this)" id="cvl-fr">Français</button>
+              <button class="opt" onclick="setCVL('en',this)" id="cvl-en">English</button>
+              <button class="opt" onclick="setCVL('de',this)" id="cvl-de">Deutsch</button>
+            </div>
+          </div>
+          <!-- Photo -->
           <div class="photo-row">
             <div class="photo-circle" onclick="document.getElementById('photo-input').click()">
               <img id="photo-img" src=""/><svg id="photo-icon" width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="8" r="3" stroke="#C8B4A8" stroke-width="1.2"/><path d="M3 17c0-3.31 3.13-5 7-5s7 1.69 7 5" stroke="#C8B4A8" stroke-width="1.2" stroke-linecap="round"/></svg>
@@ -330,13 +334,13 @@ footer{padding:28px 48px;background:#FAFAF8;border-top:.5px solid #E2DDD8;displa
             <button class="photo-pick" id="photo-btn" onclick="document.getElementById('photo-input').click()">Choisir</button>
             <input type="file" id="photo-input" accept="image/*" onchange="handlePhoto(this)"/>
           </div>
-          <div class="fl"><label id="lf-name">Prénom & Nom</label><input id="f-name" placeholder="Ex : Sophie Martin"/></div>
+          <div class="fl"><label id="lf-name">Prénom & Nom</label><input id="f-name" placeholder="Sophie Martin"/></div>
           <div class="fl"><label id="lf-job">Poste visé</label><input id="f-job"/></div>
-          <div class="fl"><label id="lf-email">Email</label><input id="f-email" type="email" placeholder="sophie.martin@email.com"/></div>
+          <div class="fl"><label id="lf-email">Email</label><input id="f-email" type="email" placeholder="sophie@email.com"/></div>
           <div class="fl"><label id="lf-phone">Téléphone</label><input id="f-phone" placeholder="+33 6 12 34 56 78"/></div>
           <div class="fl"><label id="lf-city">Ville</label><input id="f-city" placeholder="Paris, France"/></div>
-          <div class="fl"><label id="lf-link">LinkedIn</label><input id="f-link" placeholder="linkedin.com/in/sophie-martin"/></div>
-          <div class="fl fg-full"><label id="lf-exp">Expériences</label><textarea id="f-exp"></textarea></div>
+          <div class="fl"><label id="lf-link">LinkedIn</label><input id="f-link" placeholder="linkedin.com/in/..."/></div>
+          <div class="fl fg-full"><label id="lf-exp">Expériences professionnelles</label><textarea id="f-exp"></textarea></div>
           <div class="fl fg-full"><label id="lf-edu">Formation</label><textarea id="f-edu"></textarea></div>
           <div class="fl"><label id="lf-sk">Compétences</label><input id="f-skills"/></div>
           <div class="fl"><label id="lf-la">Langues</label><input id="f-langs"/></div>
@@ -356,12 +360,12 @@ footer{padding:28px 48px;background:#FAFAF8;border-top:.5px solid #E2DDD8;displa
   </div>
 </div>
 
-<!-- ══════════ PDF PAGE ══════════ -->
+<!-- PDF PAGE -->
 <div id="pg-pdf" class="page">
   <div class="tool-page">
     <button class="back-btn" onclick="showPage('home')" id="pdf-back">Retour</button>
     <h2 id="pdf-h">Résumé de texte</h2>
-    <p class="tp-sub" id="pdf-sub">Collez votre texte et obtenez un résumé structuré avec points clés et mots-clés.</p>
+    <p class="tp-sub" id="pdf-sub">Collez votre texte — obtenez un résumé court, des points clés et des mots-clés.</p>
     <div class="tool-layout">
       <div class="form-card">
         <div class="fl" style="margin-bottom:16px"><label id="lf-txt">Texte à résumer</label><textarea id="f-txt" style="min-height:300px"></textarea></div>
@@ -379,7 +383,7 @@ footer{padding:28px 48px;background:#FAFAF8;border-top:.5px solid #E2DDD8;displa
   </div>
 </div>
 
-<!-- ══════════ LOGO PAGE ══════════ -->
+<!-- LOGO PAGE -->
 <div id="pg-logo" class="page">
   <div class="tool-page">
     <button class="back-btn" onclick="showPage('home')" id="logo-back">Retour</button>
@@ -391,8 +395,8 @@ footer{padding:28px 48px;background:#FAFAF8;border-top:.5px solid #E2DDD8;displa
           <div class="fl fg-full"><label id="lf-co">Nom de l'entreprise</label><input id="f-company" placeholder="Ex : NovaTech, LaBoulangerie, Zenflow..."/></div>
           <div class="fl fg-full"><label id="lf-tag">Slogan (optionnel)</label><input id="f-tagline" placeholder="Ex : Innovez avec confiance"/></div>
           <div class="fl fg-full">
-            <label id="lf-style">Style du logo</label>
-            <div class="logo-styles" id="logo-styles-grid">
+            <label id="lf-style">Style</label>
+            <div class="logo-styles">
               <div class="style-opt on" onclick="setLogoStyle('modern',this)"><div class="so-icon">◻</div><div class="so-name" id="ls-modern">Moderne</div><div class="so-desc">Minimaliste</div></div>
               <div class="style-opt" onclick="setLogoStyle('bold',this)"><div class="so-icon">◼</div><div class="so-name" id="ls-bold">Audacieux</div><div class="so-desc">Fort & impactant</div></div>
               <div class="style-opt" onclick="setLogoStyle('elegant',this)"><div class="so-icon">◇</div><div class="so-name" id="ls-elegant">Élégant</div><div class="so-desc">Luxe & raffiné</div></div>
@@ -402,7 +406,7 @@ footer{padding:28px 48px;background:#FAFAF8;border-top:.5px solid #E2DDD8;displa
             </div>
           </div>
           <div class="fl fg-full">
-            <label id="lf-color">Couleur principale</label>
+            <label id="lf-color">Couleur</label>
             <div class="color-opts">
               <div class="color-dot on" style="background:#1A73E8" onclick="setLogoColor('blue',this)" title="Bleu"></div>
               <div class="color-dot" style="background:#2E7D32" onclick="setLogoColor('green',this)" title="Vert"></div>
@@ -410,7 +414,7 @@ footer{padding:28px 48px;background:#FAFAF8;border-top:.5px solid #E2DDD8;displa
               <div class="color-dot" style="background:#6A1B9A" onclick="setLogoColor('purple',this)" title="Violet"></div>
               <div class="color-dot" style="background:#E65100" onclick="setLogoColor('orange',this)" title="Orange"></div>
               <div class="color-dot" style="background:#212121" onclick="setLogoColor('black',this)" title="Noir"></div>
-              <div class="color-dot" style="background:#F57F17" onclick="setLogoColor('gold',this)" title="Or"></div>
+              <div class="color-dot" style="background:#F9A825" onclick="setLogoColor('gold',this)" title="Or"></div>
             </div>
           </div>
         </div>
@@ -421,29 +425,23 @@ footer{padding:28px 48px;background:#FAFAF8;border-top:.5px solid #E2DDD8;displa
       </div>
       <div class="result-card">
         <div class="res-header"><span class="res-title" id="logo-res-lbl">Logos générés</span></div>
-        <div id="logo-result-body">
-          <div class="empty-state">
-            <div class="empty-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="6" stroke="#C8B4A8" stroke-width="1.2"/><path d="M6 9l2 2 4-4" stroke="#C8B4A8" stroke-width="1.2" stroke-linecap="round"/></svg></div>
-            <span id="logo-empty-txt" style="font-size:13px;color:#A09890">Vos logos apparaîtront ici</span>
-          </div>
-        </div>
+        <div id="logo-result-body"><div class="empty-state"><div class="empty-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="6" stroke="#C8B4A8" stroke-width="1.2"/><path d="M6 9l2 2 4-4" stroke="#C8B4A8" stroke-width="1.2" stroke-linecap="round"/></svg></div><span id="logo-empty-txt" style="font-size:13px;color:#A09890">Vos logos apparaîtront ici</span></div></div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- ══════════ SOCIAL PAGE ══════════ -->
+<!-- SOCIAL PAGE -->
 <div id="pg-social" class="page">
   <div class="tool-page">
     <button class="back-btn" onclick="showPage('home')" id="social-back">Retour</button>
     <h2 id="social-h">Générateur de posts réseaux sociaux</h2>
-    <p class="tp-sub" id="social-sub">Décrivez votre sujet — obtenez des posts adaptés pour chaque plateforme.</p>
+    <p class="tp-sub" id="social-sub">Décrivez votre sujet — obtenez des posts optimisés pour chaque plateforme.</p>
     <div class="tool-layout">
       <div class="form-card">
         <div class="form-grid">
           <div class="fl fg-full"><label id="lf-topic">Sujet / Idée</label><textarea id="f-topic" style="min-height:80px"></textarea></div>
-          <div class="fl">
-            <label id="lf-tone">Ton</label>
+          <div class="fl"><label id="lf-tone">Ton</label>
             <select id="f-tone">
               <option value="professional" id="tone-pro">Professionnel</option>
               <option value="casual" id="tone-cas">Décontracté</option>
@@ -452,29 +450,14 @@ footer{padding:28px 48px;background:#FAFAF8;border-top:.5px solid #E2DDD8;displa
               <option value="educational" id="tone-edu">Éducatif</option>
             </select>
           </div>
-          <div class="fl">
-            <label id="lf-industry">Secteur (optionnel)</label>
-            <input id="f-industry"/>
-          </div>
+          <div class="fl"><label id="lf-industry">Secteur</label><input id="f-industry"/></div>
           <div class="fg-full">
             <label style="font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:#6B6560;display:block;margin-bottom:8px" id="lf-platforms">Plateformes</label>
             <div class="platform-tabs">
-              <div class="ptab on" onclick="togglePlatform('instagram',this)" data-platform="instagram">
-                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="2" y="2" width="10" height="10" rx="3" stroke="currentColor" stroke-width="1.2"/><circle cx="7" cy="7" r="2.5" stroke="currentColor" stroke-width="1.2"/><circle cx="10.5" cy="3.5" r=".7" fill="currentColor"/></svg>
-                Instagram
-              </div>
-              <div class="ptab on" onclick="togglePlatform('linkedin',this)" data-platform="linkedin">
-                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="1" y="1" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1.2"/><path d="M4 6v4M4 4.5v.5M7 10V7.5C7 6.7 7.7 6 8.5 6S10 6.7 10 7.5V10" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
-                LinkedIn
-              </div>
-              <div class="ptab on" onclick="togglePlatform('twitter',this)" data-platform="twitter">
-                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 2.5l4 5-4 4h1.5l3.2-3.5L9.5 12H13l-4.2-5.3L12.5 2H11L8 5.2 5.5 2H2z" stroke="currentColor" stroke-width="1" fill="none"/></svg>
-                X / Twitter
-              </div>
-              <div class="ptab on" onclick="togglePlatform('tiktok',this)" data-platform="tiktok">
-                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 2c.5 2 2 2.5 3 2.5v2c-1 0-2-.3-3-1v4a3 3 0 11-3-3v2a1 1 0 101 1V2h2z" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
-                TikTok
-              </div>
+              <div class="ptab on" onclick="togglePlatform('instagram',this)">Instagram</div>
+              <div class="ptab on" onclick="togglePlatform('linkedin',this)">LinkedIn</div>
+              <div class="ptab on" onclick="togglePlatform('twitter',this)">X / Twitter</div>
+              <div class="ptab on" onclick="togglePlatform('tiktok',this)">TikTok</div>
             </div>
           </div>
         </div>
@@ -485,18 +468,13 @@ footer{padding:28px 48px;background:#FAFAF8;border-top:.5px solid #E2DDD8;displa
       </div>
       <div class="result-card">
         <div class="res-header"><span class="res-title" id="social-res-lbl">Posts générés</span><button class="copy-btn" id="social-copy-btn" onclick="copyRes('social-result-body')" style="display:none">Tout copier</button></div>
-        <div id="social-result-body">
-          <div class="empty-state">
-            <div class="empty-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 12c0-3.31 2.69-5 6-5s6 1.69 6 5-2.69 5-6 5" stroke="#C8B4A8" stroke-width="1.2"/><circle cx="9" cy="5" r="2" stroke="#C8B4A8" stroke-width="1.2"/></svg></div>
-            <span id="social-empty-txt" style="font-size:13px;color:#A09890">Vos posts apparaîtront ici</span>
-          </div>
-        </div>
+        <div id="social-result-body"><div class="empty-state"><div class="empty-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="5" cy="9" r="2" stroke="#C8B4A8" stroke-width="1.2"/><circle cx="13" cy="5" r="2" stroke="#C8B4A8" stroke-width="1.2"/><circle cx="13" cy="13" r="2" stroke="#C8B4A8" stroke-width="1.2"/><path d="M7 8l4-2M7 10l4 2" stroke="#C8B4A8" stroke-width="1.2"/></svg></div><span id="social-empty-txt" style="font-size:13px;color:#A09890">Vos posts apparaîtront ici</span></div></div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- ══════════ YOUTUBE PAGE ══════════ -->
+<!-- YOUTUBE PAGE -->
 <div id="pg-youtube" class="page">
   <div class="tool-page">
     <button class="back-btn" onclick="showPage('home')" id="yt-back">Retour</button>
@@ -505,49 +483,39 @@ footer{padding:28px 48px;background:#FAFAF8;border-top:.5px solid #E2DDD8;displa
     <div class="tool-layout">
       <div class="form-card">
         <div class="form-grid">
-          <div class="disclaimer">
-            <strong id="disc-title">Note légale :</strong> <span id="disc-text">Cet outil utilise les sous-titres publics des vidéos YouTube. Utilisez-le uniquement pour un usage personnel ou éducatif. Respectez les droits d'auteur des créateurs. Ne reproduisez pas le contenu sans permission.</span>
-          </div>
-          <div class="fl fg-full">
-            <label id="lf-yturl">Lien YouTube</label>
-            <input id="f-yturl" placeholder="https://www.youtube.com/watch?v=..." type="url" oninput="previewYT(this.value)"/>
-          </div>
+          <div class="disclaimer"><strong id="disc-title">Note légale :</strong> <span id="disc-text">Cet outil utilise uniquement les sous-titres publics. Usage personnel et éducatif uniquement. Respectez les droits des créateurs.</span></div>
+          <div class="fl fg-full"><label id="lf-yturl">Lien YouTube</label><input id="f-yturl" placeholder="https://www.youtube.com/watch?v=..." type="url" oninput="previewYT(this.value)"/></div>
           <div id="yt-preview" class="yt-preview fg-full">
             <div class="yt-thumb"><img id="yt-thumb-img" src="" alt=""/></div>
-            <div class="yt-info"><div class="yt-title" id="yt-preview-id">Video ID détecté</div><div class="yt-id" id="yt-preview-url"></div></div>
+            <div class="yt-info"><div class="yt-title" id="yt-preview-id">Vidéo détectée</div><div class="yt-id" id="yt-preview-url"></div></div>
           </div>
         </div>
         <button class="submit-btn" id="yt-btn" onclick="genYoutube()">
           <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><rect x="1" y="2" width="11" height="9" rx="2.5" stroke="currentColor" stroke-width="1.2"/><path d="M5 5l3 1.5-3 1.5V5z" fill="currentColor"/></svg>
           <span id="yt-btn-txt">Résumer la vidéo</span>
         </button>
-        <p style="font-size:11px;color:#A09890;margin-top:10px" id="yt-note">La vidéo doit avoir des sous-titres activés.</p>
+        <p style="font-size:11px;color:#A09890;margin-top:8px" id="yt-note">La vidéo doit avoir des sous-titres activés.</p>
       </div>
       <div class="result-card">
         <div class="res-header"><span class="res-title" id="yt-res-lbl">Résumé</span><button class="copy-btn" id="yt-copy-btn" onclick="copyRes('yt-result-body')" style="display:none">Copier</button></div>
-        <div id="yt-result-body">
-          <div class="empty-state">
-            <div class="empty-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="1" y="4" width="16" height="11" rx="3" stroke="#C8B4A8" stroke-width="1.2"/><path d="M6.5 8l4 2-4 2V8z" fill="#C8B4A8"/></svg></div>
-            <span id="yt-empty-txt" style="font-size:13px;color:#A09890">Le résumé apparaîtra ici</span>
-          </div>
-        </div>
+        <div id="yt-result-body"><div class="empty-state"><div class="empty-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="1" y="4" width="16" height="11" rx="3" stroke="#C8B4A8" stroke-width="1.2"/><path d="M6.5 8l4 2-4 2V8z" fill="#C8B4A8"/></svg></div><span id="yt-empty-txt" style="font-size:13px;color:#A09890">Le résumé apparaîtra ici</span></div></div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- ══════════ ABOUT PAGE ══════════ -->
+<!-- ABOUT PAGE -->
 <div id="pg-about" class="page">
   <div class="about-page">
     <button class="back-btn" onclick="showPage('home')" id="about-back">Retour</button>
     <h2 id="ab-h">À propos & Conformité</h2>
-    <p id="ab-p1">DocCraft est une plateforme d'outils IA gratuits pour créer des CV, logos, posts réseaux sociaux et résumer des vidéos YouTube. Propulsé par Google Gemini.</p>
-    <p id="ab-p2">Nous respectons strictement le RGPD, les droits d'auteur et les conditions d'utilisation des plateformes tierces.</p>
+    <p id="ab-p1">DocCraft est une plateforme d'outils IA gratuits. Propulsé par Groq et Llama 3.3.</p>
+    <p id="ab-p2">Nous respectons le RGPD, les droits d'auteur et les conditions des plateformes tierces.</p>
     <div class="about-grid">
-      <div class="about-card"><div class="ac-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 2L3 5v4c0 2.76 2.24 5 5 5s5-2.24 5-5V5L8 2z" stroke="#8B6F5E" stroke-width="1.2"/></svg></div><h3 id="ac1h">RGPD & Données</h3><p id="ac1d">Aucune donnée personnelle n'est stockée. Chaque session est indépendante et effacée après utilisation. Conforme au RGPD.</p></div>
-      <div class="about-card"><div class="ac-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="5" stroke="#8B6F5E" stroke-width="1.2"/><path d="M6 8l2 2 4-4" stroke="#8B6F5E" stroke-width="1.2" stroke-linecap="round"/></svg></div><h3 id="ac2h">Droits d'auteur</h3><p id="ac2d">Les contenus générés appartiennent à l'utilisateur. Les logos SVG sont originaux. Les résumés YouTube respectent le fair use éducatif.</p></div>
-      <div class="about-card"><div class="ac-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2" y="2" width="12" height="12" rx="2" stroke="#8B6F5E" stroke-width="1.2"/><path d="M5 8h6M5 5.5h6M5 10.5h4" stroke="#8B6F5E" stroke-width="1.2" stroke-linecap="round"/></svg></div><h3 id="ac3h">YouTube & CGU</h3><p id="ac3d">L'outil YouTube utilise uniquement les sous-titres publics. Usage personnel et éducatif uniquement. Ne reproduisez pas le contenu des créateurs sans permission.</p></div>
-      <div class="about-card"><div class="ac-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 2L3 5v4c0 2.76 2.24 5 5 5s5-2.24 5-5V5L8 2z" stroke="#8B6F5E" stroke-width="1.2"/><path d="M6 8l2 2 4-4" stroke="#8B6F5E" stroke-width="1.2" stroke-linecap="round"/></svg></div><h3 id="ac4h">App Store & Play Store</h3><p id="ac4d">DocCraft est une application web. Si déployée comme PWA, elle respecte les règles d'Apple (App Store Review Guidelines §5) et Google (Play Policy).</p></div>
+      <div class="about-card"><div class="ac-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 2L3 5v4c0 2.76 2.24 5 5 5s5-2.24 5-5V5L8 2z" stroke="#8B6F5E" stroke-width="1.2"/></svg></div><h3>RGPD & Données</h3><p>Aucune donnée personnelle stockée. Conforme au RGPD.</p></div>
+      <div class="about-card"><div class="ac-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="5" stroke="#8B6F5E" stroke-width="1.2"/><path d="M6 8l2 2 4-4" stroke="#8B6F5E" stroke-width="1.2" stroke-linecap="round"/></svg></div><h3>Droits d'auteur</h3><p>Contenus générés appartiennent à l'utilisateur. Fair use éducatif pour YouTube.</p></div>
+      <div class="about-card"><div class="ac-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2" y="2" width="12" height="12" rx="2" stroke="#8B6F5E" stroke-width="1.2"/><path d="M5 8h6M5 5.5h6M5 10.5h4" stroke="#8B6F5E" stroke-width="1.2" stroke-linecap="round"/></svg></div><h3>YouTube & CGU</h3><p>Sous-titres publics uniquement. Usage personnel et éducatif.</p></div>
+      <div class="about-card"><div class="ac-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 2L3 5v4c0 2.76 2.24 5 5 5s5-2.24 5-5V5L8 2z" stroke="#8B6F5E" stroke-width="1.2"/><path d="M6 8l2 2 4-4" stroke="#8B6F5E" stroke-width="1.2" stroke-linecap="round"/></svg></div><h3>App Store & Play Store</h3><p>Respecte les règles Apple et Google. Pas de données collectées sans consentement.</p></div>
     </div>
   </div>
 </div>
@@ -556,124 +524,176 @@ footer{padding:28px 48px;background:#FAFAF8;border-top:.5px solid #E2DDD8;displa
 
 <script>
 const PH={
-  fr:{job:'Ex : Chef de projet digital',exp:'Ex : Chef de projet chez Renault (2020-2024) — équipe 8 personnes, budget 500k€.\nIngénieure chez Airbus (2017-2020) — logiciel embarqué.',edu:'Ex : Master Génie Logiciel — INSA Lyon (2015-2017).',sk:'Ex : Python, React, Jira, Figma',la:'Ex : Français (natif), Anglais (C1)',txt:'Collez ici votre texte à résumer — rapport, contrat, article, cours...',topic:'Ex : Lancement de notre nouveau produit SaaS, conseils productivité, recette healthy...',industry:'Ex : Tech, Restauration, Mode, Finance...'},
-  en:{job:'E.g.: Digital Project Manager',exp:'E.g.: Project Manager at Renault (2020-2024) — 8-person team, €500k budget.\nEngineer at Airbus (2017-2020) — embedded software.',edu:'E.g.: MSc Software Engineering — INSA Lyon (2015-2017).',sk:'E.g.: Python, React, Jira, Figma',la:'E.g.: French (native), English (C1)',txt:'Paste your text to summarize here — report, contract, article, lecture notes...',topic:'E.g.: Launching our new SaaS product, productivity tips, healthy recipe...',industry:'E.g.: Tech, Restaurant, Fashion, Finance...'},
-  de:{job:'z.B.: Digitaler Projektmanager',exp:'z.B.: Projektmanager bei Renault (2020-2024) — 8-köpfiges Team, 500k€ Budget.\nIngenieur bei Airbus (2017-2020) — eingebettete Software.',edu:'z.B.: Master Softwareengineering — INSA Lyon (2015-2017).',sk:'z.B.: Python, React, Jira, Figma',la:'z.B.: Französisch (Muttersprache), Englisch (C1)',txt:'Fügen Sie hier Ihren Text ein — Bericht, Vertrag, Artikel...',topic:'z.B.: Start unseres neuen SaaS-Produkts, Produktivitätstipps, gesundes Rezept...',industry:'z.B.: Tech, Restaurant, Mode, Finanzen...'}
+  fr:{job:'Ex : Chef de projet digital',exp:'Ex : Chef de projet chez Renault (2020-2024) — équipe 8 personnes, budget 500k€.\nIngénieure chez Airbus (2017-2020) — logiciel embarqué.',edu:'Ex : Master Génie Logiciel — INSA Lyon (2015-2017).\nLicence Informatique — Paris-Saclay (2012-2015).',sk:'Ex : Python, React, Jira, Figma, SQL',la:'Ex : Français (natif), Anglais (C1), Espagnol (B2)',txt:'Collez ici votre texte à résumer...\n\nExemple : rapport annuel, contrat, article de presse, notes de cours...',topic:'Ex : Lancement de notre nouveau produit SaaS, 5 conseils productivité, recette healthy...',industry:'Ex : Tech, Restauration, Mode, Finance...'},
+  en:{job:'E.g.: Digital Project Manager',exp:'E.g.: Project Manager at Renault (2020-2024) — 8-person team, €500k budget.\nEngineer at Airbus (2017-2020) — embedded software.',edu:'E.g.: MSc Software Engineering — INSA Lyon (2015-2017).\nBSc Computer Science — Paris-Saclay (2012-2015).',sk:'E.g.: Python, React, Jira, Figma, SQL',la:'E.g.: French (native), English (C1), Spanish (B2)',txt:'Paste your text to summarize here...\n\nExample: annual report, contract, article, lecture notes...',topic:'E.g.: Launching our new SaaS product, 5 productivity tips, healthy recipe...',industry:'E.g.: Tech, Restaurant, Fashion, Finance...'},
+  de:{job:'z.B.: Digitaler Projektmanager',exp:'z.B.: Projektmanager bei Renault (2020-2024) — 8-köpfiges Team, 500k€ Budget.\nIngenieur bei Airbus (2017-2020) — eingebettete Software.',edu:'z.B.: Master Softwareengineering — INSA Lyon (2015-2017).\nBachelor Informatik — Paris-Saclay (2012-2015).',sk:'z.B.: Python, React, Jira, Figma, SQL',la:'z.B.: Französisch (Muttersprache), Englisch (C1), Spanisch (B2)',txt:'Fügen Sie hier Ihren Text ein...\n\nBeispiel: Jahresbericht, Vertrag, Artikel...',topic:'z.B.: Start unseres SaaS-Produkts, 5 Produktivitätstipps...',industry:'z.B.: Tech, Restaurant, Mode, Finanzen...'}
 };
 
-let PL='fr',CVL='fr',logoStyle='modern',logoColor='blue',activePlatforms=new Set(['instagram','linkedin','twitter','tiktok']),photoB64=null;
+let PL='fr',CVL='fr',CVTpl='modern',logoStyle='modern',logoColor='blue',activePlatforms=new Set(['instagram','linkedin','twitter','tiktok']),photoB64=null;
 const g=id=>document.getElementById(id);
 const s=(id,v,h)=>{const e=g(id);if(e){if(h)e.innerHTML=v;else e.textContent=v;}};
 
+// CV Template styles
+const tplStyles={
+  modern:`<style>.cv-out{font-family:Arial,sans-serif;color:#1C1C1A;padding:20px}.cv-out h1{font-size:22px;color:#1C1C1A;border-bottom:2px solid #8B6F5E;padding-bottom:6px;margin-bottom:4px}.cv-out h2{font-size:12px;text-transform:uppercase;letter-spacing:2px;color:#8B6F5E;margin:14px 0 5px;border-bottom:.5px solid #E2DDD8;padding-bottom:3px}.cv-out p{font-size:13px;color:#555;line-height:1.6;margin-bottom:4px}.cv-out ul{padding-left:14px;margin:4px 0}.cv-out li{font-size:13px;color:#555;margin-bottom:3px}.cv-out strong{color:#1C1C1A}.cv-out .subtitle{font-size:14px;color:#8B6F5E;margin-bottom:8px}.cv-out .contact{font-size:12px;color:#6B6560;margin-bottom:2px}</style>`,
+  classic:`<style>.cv-out{font-family:Georgia,serif;color:#2C2416;background:#FFFEF8;padding:20px}.cv-out h1{font-size:24px;text-align:center;color:#2C2416;margin-bottom:4px}.cv-out h2{font-size:12px;text-transform:uppercase;letter-spacing:3px;color:#8B6F5E;margin:14px 0 5px;text-align:center}.cv-out hr{border:.5px solid #D4C4A8;margin:6px 0}.cv-out p{font-size:13px;color:#4A3C28;line-height:1.65;margin-bottom:4px;text-align:justify}.cv-out ul{padding-left:16px;margin:4px 0}.cv-out li{font-size:13px;color:#4A3C28;margin-bottom:3px}.cv-out strong{color:#2C2416}.cv-out .subtitle{font-size:13px;color:#8B7058;text-align:center;margin-bottom:6px}.cv-out .contact{font-size:12px;color:#6B5C3E;text-align:center;margin-bottom:2px}</style>`,
+  minimal:`<style>.cv-out{font-family:'DM Sans',Arial,sans-serif;color:#1C1C1A;padding:20px}.cv-out h1{font-size:20px;font-weight:500;color:#1C1C1A;margin-bottom:3px}.cv-out h2{font-size:10px;text-transform:uppercase;letter-spacing:3px;color:#A09890;margin:14px 0 5px}.cv-out p{font-size:13px;color:#555;line-height:1.6;margin-bottom:4px}.cv-out ul{list-style:none;padding:0;margin:4px 0}.cv-out li{font-size:13px;color:#555;margin-bottom:4px;padding-left:10px;border-left:2px solid #E2DDD8}.cv-out strong{color:#1C1C1A;font-weight:500}.cv-out .subtitle{font-size:13px;color:#A09890;margin-bottom:6px}.cv-out .contact{font-size:12px;color:#A09890;margin-bottom:2px}</style>`,
+  dark:`<style>.cv-out{font-family:Arial,sans-serif;color:#FAFAF8;background:#1C1C1A;padding:20px;border-radius:8px}.cv-out h1{font-size:22px;color:#FAFAF8;margin-bottom:4px}.cv-out h2{font-size:11px;text-transform:uppercase;letter-spacing:2px;color:#8B6F5E;margin:14px 0 5px;border-bottom:.5px solid #3C3C3A;padding-bottom:3px}.cv-out p{font-size:13px;color:#C8C0B8;line-height:1.6;margin-bottom:4px}.cv-out ul{padding-left:14px;margin:4px 0}.cv-out li{font-size:13px;color:#C8C0B8;margin-bottom:3px}.cv-out strong{color:#FAFAF8}.cv-out .subtitle{font-size:14px;color:#8B6F5E;margin-bottom:6px}.cv-out .contact{font-size:12px;color:#A09890;margin-bottom:2px}</style>`
+};
+
+const TR_KEYS={
+  fr:{tools:'Outils',about:'À propos',cta:'Commencer',ey:'6 outils IA en une seule plateforme',t_ht:true,ht:'Créez, résumez,<br><em>publiez en<br>quelques secondes.</em>',hs:'CV, logos, posts réseaux sociaux, résumés YouTube — tout ce dont vous avez besoin.',hb1:'Générer un CV',hb2:'Créer un logo',hn:'100% gratuit · Aucun compte requis',st1:'Outils IA disponibles',st2:'Modèles de CV',st3:'Pour générer un document',st4:'Pour commencer',flb:'Tous nos outils',ftitle:'Six outils, une seule plateforme',t1n:'Générateur de CV',t1d:'4 modèles professionnels. CV dans la langue de votre choix.',t2n:'Résumé de texte',t2d:'Résumé concis, points clés et mots-clés.',t3n:'Générateur de logos',t3d:'3 variations SVG téléchargeables.',t4n:'Posts réseaux sociaux',t4d:'Instagram, LinkedIn, Twitter/X et TikTok.',t5n:'Résumé YouTube',t5d:'Résumé, points clés et notes.',t6n:'À propos & conformité',t6d:'RGPD, droits d\'auteur, conformité.',ftn:'Propulsé par Groq + Llama · 100% gratuit · RGPD',cvback:'Retour',cvh:'Générateur de CV',cvsub:'Choisissez un modèle, renseignez vos informations — obtenez un CV professionnel.',cvllbl:'CV en :',cvlfr:'Français',cvlen:'English',cvlde:'Deutsch',lftpl:'Modèle de CV','tpl-modern':'Moderne','tpl-classic':'Classique','tpl-minimal':'Minimaliste','tpl-dark':'Sombre',photolbl:'Photo de profil',photosub:'Optionnelle · JPG ou PNG',photobtn:'Choisir',lfname:'Prénom & Nom',lfjob:'Poste visé',lfemail:'Email',lfphone:'Téléphone',lfcity:'Ville',lflink:'LinkedIn',lfexp:'Expériences professionnelles',lfedu:'Formation',lfsk:'Compétences',lfla:'Langues',cvbtn:'Générer mon CV',cvres:'Résultat',cvempty:'Votre CV apparaîtra ici',pdfback:'Retour',pdfh:'Résumé de texte',pdfsub:'Collez votre texte — obtenez un résumé court, des points clés et des mots-clés.',lftxt:'Texte à résumer',pdfhint:'Recommandé : 200 à 5000 mots',pdfbtn:'Résumer le texte',pdfres:'Résultat',pdfempty:'Votre résumé apparaîtra ici',logoback:'Retour',logoh:'Générateur de logos',logosub:'Entrez le nom de votre entreprise — obtenez 3 logos SVG.',lfco:'Nom de l\'entreprise',lftag:'Slogan (optionnel)',lfstyle:'Style',lfcolor:'Couleur','ls-modern':'Moderne','ls-bold':'Audacieux','ls-elegant':'Élégant','ls-playful':'Ludique','ls-tech':'Tech','ls-nature':'Nature',logobtn:'Générer les logos',logores:'Logos générés',logoempty:'Vos logos apparaîtront ici',socialback:'Retour',socialh:'Générateur de posts réseaux sociaux',socialsub:'Décrivez votre sujet — obtenez des posts optimisés.',lftopic:'Sujet / Idée',lftone:'Ton',lfindustry:'Secteur',lfplatforms:'Plateformes','tone-pro':'Professionnel','tone-cas':'Décontracté','tone-ins':'Inspirant','tone-hum':'Humoristique','tone-edu':'Éducatif',socialbtn:'Générer les posts',socialres:'Posts générés',socialempty:'Vos posts apparaîtront ici',ytback:'Retour',yth:'Résumé de vidéo YouTube',ytsub:'Collez un lien YouTube — résumé, points clés et notes.',lfyturl:'Lien YouTube',ytbtn:'Résumer la vidéo',ytres:'Résumé',ytempty:'Le résumé apparaîtra ici',ytnote:'La vidéo doit avoir des sous-titres activés.',disctitle:'Note légale :',disctext:'Cet outil utilise uniquement les sous-titres publics. Usage personnel et éducatif uniquement.',aboutback:'Retour',abh:'À propos & Conformité',abp1:'DocCraft est une plateforme d\'outils IA gratuits. Propulsé par Groq et Llama 3.3.',abp2:'Nous respectons le RGPD, les droits d\'auteur et les conditions des plateformes.',copy:'Copier',copied:'Copié !',gen:'Génération en cours...'},
+  en:{tools:'Tools',about:'About',cta:'Get started',ey:'6 AI tools in one platform',t_ht:true,ht:'Create, summarize,<br><em>publish in<br>seconds.</em>',hs:'Resumes, logos, social media posts, YouTube summaries — everything you need.',hb1:'Generate a resume',hb2:'Create a logo',hn:'100% free · No account required',st1:'AI tools available',st2:'CV templates',st3:'To generate a document',st4:'To get started',flb:'All our tools',ftitle:'Six tools, one platform',t1n:'Resume Generator',t1d:'4 professional templates. Resume in the language of your choice.',t2n:'Text Summarizer',t2d:'Concise summary, key points and keywords.',t3n:'Logo Generator',t3d:'3 downloadable SVG variations.',t4n:'Social media posts',t4d:'Instagram, LinkedIn, Twitter/X and TikTok.',t5n:'YouTube Summary',t5d:'Summary, key points and notes.',t6n:'About & compliance',t6d:'GDPR, copyright, legal compliance.',ftn:'Powered by Groq + Llama · 100% free · GDPR',cvback:'Back',cvh:'Resume Generator',cvsub:'Choose a template, fill in your details — get a professional resume instantly.',cvllbl:'Resume in:',cvlfr:'Français',cvlen:'English',cvlde:'Deutsch',lftpl:'CV Template','tpl-modern':'Modern','tpl-classic':'Classic','tpl-minimal':'Minimal','tpl-dark':'Dark',photolbl:'Profile photo',photosub:'Optional · JPG or PNG',photobtn:'Choose',lfname:'Full Name',lfjob:'Target Position',lfemail:'Email',lfphone:'Phone',lfcity:'City',lflink:'LinkedIn',lfexp:'Work Experience',lfedu:'Education',lfsk:'Skills',lfla:'Languages',cvbtn:'Generate my Resume',cvres:'Result',cvempty:'Your resume will appear here',pdfback:'Back',pdfh:'Text Summarizer',pdfsub:'Paste your text — get a short summary, key points and keywords.',lftxt:'Text to summarize',pdfhint:'Recommended: 200 to 5000 words',pdfbtn:'Summarize text',pdfres:'Result',pdfempty:'Your summary will appear here',logoback:'Back',logoh:'Logo Generator',logosub:'Enter your company name — get 3 downloadable SVG logos.',lfco:'Company name',lftag:'Tagline (optional)',lfstyle:'Style',lfcolor:'Color','ls-modern':'Modern','ls-bold':'Bold','ls-elegant':'Elegant','ls-playful':'Playful','ls-tech':'Tech','ls-nature':'Nature',logobtn:'Generate logos',logores:'Generated logos',logoempty:'Your logos will appear here',socialback:'Back',socialh:'Social media post generator',socialsub:'Describe your topic — get optimized posts for each platform.',lftopic:'Topic / Idea',lftone:'Tone',lfindustry:'Industry',lfplatforms:'Platforms','tone-pro':'Professional','tone-cas':'Casual','tone-ins':'Inspirational','tone-hum':'Humorous','tone-edu':'Educational',socialbtn:'Generate posts',socialres:'Generated posts',socialempty:'Your posts will appear here',ytback:'Back',yth:'YouTube Video Summary',ytsub:'Paste a YouTube link — get summary, key points and notes.',lfyturl:'YouTube link',ytbtn:'Summarize video',ytres:'Summary',ytempty:'Summary will appear here',ytnote:'The video must have subtitles enabled.',disctitle:'Legal note:',disctext:'This tool uses public subtitles only. Personal and educational use only.',aboutback:'Back',abh:'About & Compliance',abp1:'DocCraft is a free AI tools platform. Powered by Groq and Llama 3.3.',abp2:'We respect GDPR, copyright and third-party platform terms.',copy:'Copy',copied:'Copied!',gen:'Generating...'},
+  de:{tools:'Tools',about:'Über uns',cta:'Starten',ey:'6 KI-Tools auf einer Plattform',t_ht:true,ht:'Erstellen, zusammenfassen,<br><em>veröffentlichen in<br>Sekunden.</em>',hs:'Lebensläufe, Logos, Social-Media-Posts, YouTube-Zusammenfassungen.',hb1:'Lebenslauf erstellen',hb2:'Logo erstellen',hn:'100% kostenlos · Kein Konto erforderlich',st1:'Verfügbare KI-Tools',st2:'Lebenslauf-Vorlagen',st3:'Für ein Dokument',st4:'Zum Starten',flb:'Alle unsere Tools',ftitle:'Sechs Tools, eine Plattform',t1n:'Lebenslauf-Generator',t1d:'4 professionelle Vorlagen. Lebenslauf in Ihrer Wunschsprache.',t2n:'Textzusammenfassung',t2d:'Kurze Zusammenfassung, Kernpunkte und Schlüsselwörter.',t3n:'Logo-Generator',t3d:'3 herunterladbare SVG-Variationen.',t4n:'Social-Media-Posts',t4d:'Instagram, LinkedIn, Twitter/X und TikTok.',t5n:'YouTube-Zusammenfassung',t5d:'Zusammenfassung, Kernpunkte und Notizen.',t6n:'Über uns & Compliance',t6d:'DSGVO, Urheberrecht, rechtliche Compliance.',ftn:'Powered by Groq + Llama · Kostenlos · DSGVO',cvback:'Zurück',cvh:'Lebenslauf-Generator',cvsub:'Vorlage wählen, Daten eingeben — professionellen Lebenslauf erhalten.',cvllbl:'Lebenslauf in:',cvlfr:'Français',cvlen:'English',cvlde:'Deutsch',lftpl:'Lebenslauf-Vorlage','tpl-modern':'Modern','tpl-classic':'Klassisch','tpl-minimal':'Minimal','tpl-dark':'Dunkel',photolbl:'Profilfoto',photosub:'Optional · JPG oder PNG',photobtn:'Auswählen',lfname:'Vor- & Nachname',lfjob:'Angestrebte Stelle',lfemail:'E-Mail',lfphone:'Telefon',lfcity:'Stadt',lflink:'LinkedIn',lfexp:'Berufserfahrung',lfedu:'Ausbildung',lfsk:'Fähigkeiten',lfla:'Sprachen',cvbtn:'Lebenslauf erstellen',cvres:'Ergebnis',cvempty:'Ihr Lebenslauf erscheint hier',pdfback:'Zurück',pdfh:'Textzusammenfassung',pdfsub:'Text einfügen — kurze Zusammenfassung, Kernpunkte und Schlüsselwörter.',lftxt:'Text zum Zusammenfassen',pdfhint:'Empfohlen: 200 bis 5000 Wörter',pdfbtn:'Text zusammenfassen',pdfres:'Ergebnis',pdfempty:'Ihre Zusammenfassung erscheint hier',logoback:'Zurück',logoh:'Logo-Generator',logosub:'Firmenname eingeben — 3 herunterladbare SVG-Logos.',lfco:'Firmenname',lftag:'Slogan (optional)',lfstyle:'Stil',lfcolor:'Farbe','ls-modern':'Modern','ls-bold':'Fett','ls-elegant':'Elegant','ls-playful':'Verspielt','ls-tech':'Tech','ls-nature':'Natur',logobtn:'Logos generieren',logores:'Generierte Logos',logoempty:'Ihre Logos erscheinen hier',socialback:'Zurück',socialh:'Social-Media-Post-Generator',socialsub:'Thema beschreiben — optimierte Posts für jede Plattform.',lftopic:'Thema / Idee',lftone:'Ton',lfindustry:'Branche',lfplatforms:'Plattformen','tone-pro':'Professionell','tone-cas':'Locker','tone-ins':'Inspirierend','tone-hum':'Humorvoll','tone-edu':'Lehrreich',socialbtn:'Posts generieren',socialres:'Generierte Posts',socialempty:'Ihre Posts erscheinen hier',ytback:'Zurück',yth:'YouTube-Video-Zusammenfassung',ytsub:'YouTube-Link einfügen — Zusammenfassung, Kernpunkte und Notizen.',lfyturl:'YouTube-Link',ytbtn:'Video zusammenfassen',ytres:'Zusammenfassung',ytempty:'Zusammenfassung erscheint hier',ytnote:'Das Video muss Untertitel haben.',disctitle:'Rechtlicher Hinweis:',disctext:'Nur öffentliche Untertitel. Nur für persönlichen und Bildungsgebrauch.',aboutback:'Zurück',abh:'Über uns & Compliance',abp1:'DocCraft ist eine kostenlose KI-Tools-Plattform. Powered by Groq und Llama 3.3.',abp2:'Wir respektieren DSGVO, Urheberrecht und Nutzungsbedingungen.',copy:'Kopieren',copied:'Kopiert!',gen:'Wird generiert...'}
+};
+
 function applyTR(l){
-  const p=PH[l];
-  const texts={
-    fr:{tools:'Outils',about:'À propos',cta:'Commencer',h_ey:'6 outils IA en une seule plateforme',h_t:'Créez, résumez,<br><em>publiez en<br>quelques secondes.</em>',h_s:'CV, logos, posts réseaux sociaux, résumés YouTube — tout ce dont vous avez besoin.',h_b1:'Générer un CV',h_b2:'Créer un logo',h_n:'100% gratuit · Aucun compte requis',st1:'Outils IA disponibles',st2:'Langues supportées',st3:'Pour générer un document',st4:'Pour commencer',f_label:'Tous nos outils',f_title:'Six outils, une seule plateforme',t1n:'Générateur de CV',t1d:'CV professionnel dans la langue de votre choix.',t2n:'Résumé de texte',t2d:'Points clés extraits de n\'importe quel texte.',t3n:'Générateur de logos',t3d:'3 variations SVG pour votre marque.',t4n:'Posts réseaux sociaux',t4d:'Instagram, LinkedIn, Twitter/X et TikTok.',t5n:'Résumé YouTube',t5d:'Résumé, points clés et notes de vidéos.',t6n:'À propos & conformité',t6d:'RGPD, droits d\'auteur, conformité.',ft_n:'Propulsé par Google Gemini · 100% gratuit · RGPD',cv_back:'Retour',cv_h:'Générateur de CV',cv_sub:'Renseignez vos informations et obtenez un CV professionnel.',cvl_lbl:'CV rédigé en :',cvl_fr:'Français',cvl_en:'English',cvl_de:'Deutsch',photo_lbl:'Photo de profil',photo_sub:'Optionnelle · JPG ou PNG',photo_btn:'Choisir',lf_name:'Prénom & Nom',lf_job:'Poste visé',lf_email:'Email',lf_phone:'Téléphone',lf_city:'Ville',lf_link:'LinkedIn',lf_exp:'Expériences',lf_edu:'Formation',lf_sk:'Compétences',lf_la:'Langues',cv_btn:'Générer mon CV',cv_res:'Résultat',cv_empty:'Votre CV apparaîtra ici',pdf_back:'Retour',pdf_h:'Résumé de texte',pdf_sub:'Collez votre texte et obtenez un résumé structuré.',lf_txt:'Texte à résumer',pdf_hint:'Recommandé : 200 à 5000 mots',pdf_btn:'Résumer le texte',pdf_res:'Résultat',pdf_empty:'Votre résumé apparaîtra ici',logo_back:'Retour',logo_h:'Générateur de logos',logo_sub:'Entrez le nom de votre entreprise, choisissez un style — obtenez 3 logos SVG.',lf_co:'Nom de l\'entreprise',lf_tag:'Slogan (optionnel)',lf_style:'Style du logo',lf_color:'Couleur principale',logo_btn:'Générer les logos',logo_res:'Logos générés',logo_empty:'Vos logos apparaîtront ici',social_back:'Retour',social_h:'Générateur de posts réseaux sociaux',social_sub:'Décrivez votre sujet — obtenez des posts adaptés pour chaque plateforme.',lf_topic:'Sujet / Idée',lf_tone:'Ton',lf_industry:'Secteur (optionnel)',lf_platforms:'Plateformes',tone_pro:'Professionnel',tone_cas:'Décontracté',tone_ins:'Inspirant',tone_hum:'Humoristique',tone_edu:'Éducatif',social_btn:'Générer les posts',social_res:'Posts générés',social_empty:'Vos posts apparaîtront ici',yt_back:'Retour',yt_h:'Résumé de vidéo YouTube',yt_sub:'Collez un lien YouTube — obtenez résumé, points clés et notes.',lf_yturl:'Lien YouTube',yt_btn:'Résumer la vidéo',yt_res:'Résumé',yt_empty:'Le résumé apparaîtra ici',yt_note:'La vidéo doit avoir des sous-titres activés.',disc_title:'Note légale :',disc_text:'Cet outil utilise les sous-titres publics. Usage personnel et éducatif uniquement. Respectez les droits des créateurs.',about_back:'Retour',ab_h:'À propos & Conformité',ab_p1:'DocCraft est une plateforme d\'outils IA gratuits. Propulsé par Google Gemini.',ab_p2:'Nous respectons le RGPD, les droits d\'auteur et les conditions des plateformes tierces.',ac1h:'RGPD & Données',ac1d:'Aucune donnée personnelle stockée. Conforme au RGPD.',ac2h:'Droits d\'auteur',ac2d:'Contenus générés appartiennent à l\'utilisateur. Résumés YouTube respectent le fair use.',ac3h:'YouTube & CGU',ac3d:'Utilise uniquement les sous-titres publics. Usage personnel uniquement.',ac4h:'App Store & Play Store',ac4d:'Respecte les règles Apple App Store et Google Play Store.',copy:'Copier',copied:'Copié !',gen:'Génération en cours...'},
-    en:{tools:'Tools',about:'About',cta:'Get started',h_ey:'6 AI tools in one platform',h_t:'Create, summarize,<br><em>publish in<br>seconds.</em>',h_s:'Resumes, logos, social media posts, YouTube summaries — everything you need.',h_b1:'Generate a resume',h_b2:'Create a logo',h_n:'100% free · No account required',st1:'AI tools available',st2:'Languages supported',st3:'To generate a document',st4:'To get started',f_label:'All our tools',f_title:'Six tools, one platform',t1n:'Resume Generator',t1d:'Professional resume in the language of your choice.',t2n:'Text Summarizer',t2d:'Key points extracted from any text.',t3n:'Logo Generator',t3d:'3 SVG logo variations for your brand.',t4n:'Social media posts',t4d:'Instagram, LinkedIn, Twitter/X and TikTok.',t5n:'YouTube Summary',t5d:'Summary, key points and notes from videos.',t6n:'About & compliance',t6d:'GDPR, copyright, platform compliance.',ft_n:'Powered by Google Gemini · 100% free · GDPR',cv_back:'Back',cv_h:'Resume Generator',cv_sub:'Fill in your details and get a professional resume instantly.',cvl_lbl:'Resume written in:',cvl_fr:'Français',cvl_en:'English',cvl_de:'Deutsch',photo_lbl:'Profile photo',photo_sub:'Optional · JPG or PNG',photo_btn:'Choose',lf_name:'Full Name',lf_job:'Target Position',lf_email:'Email',lf_phone:'Phone',lf_city:'City',lf_link:'LinkedIn',lf_exp:'Work Experience',lf_edu:'Education',lf_sk:'Skills',lf_la:'Languages',cv_btn:'Generate my Resume',cv_res:'Result',cv_empty:'Your resume will appear here',pdf_back:'Back',pdf_h:'Text Summarizer',pdf_sub:'Paste your text and get a structured summary.',lf_txt:'Text to summarize',pdf_hint:'Recommended: 200 to 5000 words',pdf_btn:'Summarize text',pdf_res:'Result',pdf_empty:'Your summary will appear here',logo_back:'Back',logo_h:'Logo Generator',logo_sub:'Enter your company name, choose a style — get 3 downloadable SVG logos.',lf_co:'Company name',lf_tag:'Tagline (optional)',lf_style:'Logo style',lf_color:'Main color',logo_btn:'Generate logos',logo_res:'Generated logos',logo_empty:'Your logos will appear here',social_back:'Back',social_h:'Social media post generator',social_sub:'Describe your topic — get posts tailored for each platform.',lf_topic:'Topic / Idea',lf_tone:'Tone',lf_industry:'Industry (optional)',lf_platforms:'Platforms',tone_pro:'Professional',tone_cas:'Casual',tone_ins:'Inspirational',tone_hum:'Humorous',tone_edu:'Educational',social_btn:'Generate posts',social_res:'Generated posts',social_empty:'Your posts will appear here',yt_back:'Back',yt_h:'YouTube Video Summary',yt_sub:'Paste a YouTube link — get summary, key points and notes.',lf_yturl:'YouTube link',yt_btn:'Summarize video',yt_res:'Summary',yt_empty:'Summary will appear here',yt_note:'The video must have subtitles enabled.',disc_title:'Legal note:',disc_text:'This tool uses public subtitles only. Personal and educational use only. Respect creators\' rights.',about_back:'Back',ab_h:'About & Compliance',ab_p1:'DocCraft is a free AI tools platform. Powered by Google Gemini.',ab_p2:'We strictly respect GDPR, copyright and third-party platform terms of service.',ac1h:'GDPR & Data',ac1d:'No personal data stored. GDPR compliant.',ac2h:'Copyright',ac2d:'Generated content belongs to the user. YouTube summaries respect fair use.',ac3h:'YouTube & ToS',ac3d:'Uses public subtitles only. Personal use only.',ac4h:'App Store & Play Store',ac4d:'Respects Apple App Store and Google Play Store guidelines.',copy:'Copy',copied:'Copied!',gen:'Generating...'},
-    de:{tools:'Tools',about:'Über uns',cta:'Starten',h_ey:'6 KI-Tools auf einer Plattform',h_t:'Erstellen, zusammenfassen,<br><em>veröffentlichen in<br>Sekunden.</em>',h_s:'Lebensläufe, Logos, Social-Media-Posts, YouTube-Zusammenfassungen — alles was Sie brauchen.',h_b1:'Lebenslauf erstellen',h_b2:'Logo erstellen',h_n:'100% kostenlos · Kein Konto erforderlich',st1:'Verfügbare KI-Tools',st2:'Unterstützte Sprachen',st3:'Für ein Dokument',st4:'Zum Starten',f_label:'Alle unsere Tools',f_title:'Sechs Tools, eine Plattform',t1n:'Lebenslauf-Generator',t1d:'Professioneller Lebenslauf in Ihrer Wunschsprache.',t2n:'Textzusammenfassung',t2d:'Kernpunkte aus beliebigem Text extrahiert.',t3n:'Logo-Generator',t3d:'3 SVG-Logo-Variationen für Ihre Marke.',t4n:'Social-Media-Posts',t4d:'Instagram, LinkedIn, Twitter/X und TikTok.',t5n:'YouTube-Zusammenfassung',t5d:'Zusammenfassung, Kernpunkte und Notizen aus Videos.',t6n:'Über uns & Compliance',t6d:'DSGVO, Urheberrecht, Plattform-Compliance.',ft_n:'Powered by Google Gemini · 100% kostenlos · DSGVO',cv_back:'Zurück',cv_h:'Lebenslauf-Generator',cv_sub:'Geben Sie Ihre Daten ein und erhalten Sie sofort einen professionellen Lebenslauf.',cvl_lbl:'Lebenslauf verfasst in:',cvl_fr:'Français',cvl_en:'English',cvl_de:'Deutsch',photo_lbl:'Profilfoto',photo_sub:'Optional · JPG oder PNG',photo_btn:'Auswählen',lf_name:'Vor- & Nachname',lf_job:'Angestrebte Stelle',lf_email:'E-Mail',lf_phone:'Telefon',lf_city:'Stadt',lf_link:'LinkedIn',lf_exp:'Berufserfahrung',lf_edu:'Ausbildung',lf_sk:'Fähigkeiten',lf_la:'Sprachen',cv_btn:'Lebenslauf erstellen',cv_res:'Ergebnis',cv_empty:'Ihr Lebenslauf erscheint hier',pdf_back:'Zurück',pdf_h:'Textzusammenfassung',pdf_sub:'Text einfügen und strukturierte Zusammenfassung erhalten.',lf_txt:'Text zum Zusammenfassen',pdf_hint:'Empfohlen: 200 bis 5000 Wörter',pdf_btn:'Text zusammenfassen',pdf_res:'Ergebnis',pdf_empty:'Ihre Zusammenfassung erscheint hier',logo_back:'Zurück',logo_h:'Logo-Generator',logo_sub:'Firmenname eingeben, Stil wählen — 3 SVG-Logos erhalten.',lf_co:'Firmenname',lf_tag:'Slogan (optional)',lf_style:'Logo-Stil',lf_color:'Hauptfarbe',logo_btn:'Logos generieren',logo_res:'Generierte Logos',logo_empty:'Ihre Logos erscheinen hier',social_back:'Zurück',social_h:'Social-Media-Post-Generator',social_sub:'Beschreiben Sie Ihr Thema — erhalten Sie Posts für jede Plattform.',lf_topic:'Thema / Idee',lf_tone:'Ton',lf_industry:'Branche (optional)',lf_platforms:'Plattformen',tone_pro:'Professionell',tone_cas:'Locker',tone_ins:'Inspirierend',tone_hum:'Humorvoll',tone_edu:'Lehrreich',social_btn:'Posts generieren',social_res:'Generierte Posts',social_empty:'Ihre Posts erscheinen hier',yt_back:'Zurück',yt_h:'YouTube-Video-Zusammenfassung',yt_sub:'YouTube-Link einfügen — Zusammenfassung, Kernpunkte und Notizen erhalten.',lf_yturl:'YouTube-Link',yt_btn:'Video zusammenfassen',yt_res:'Zusammenfassung',yt_empty:'Die Zusammenfassung erscheint hier',yt_note:'Das Video muss Untertitel haben.',disc_title:'Rechtlicher Hinweis:',disc_text:'Dieses Tool verwendet nur öffentliche Untertitel. Nur für den persönlichen und Bildungsgebrauch.',about_back:'Zurück',ab_h:'Über uns & Compliance',ab_p1:'DocCraft ist eine kostenlose KI-Tools-Plattform. Powered by Google Gemini.',ab_p2:'Wir respektieren DSGVO, Urheberrecht und Nutzungsbedingungen.',ac1h:'DSGVO & Daten',ac1d:'Keine persönlichen Daten gespeichert. DSGVO-konform.',ac2h:'Urheberrecht',ac2d:'Generierte Inhalte gehören dem Nutzer.',ac3h:'YouTube & Nutzungsbedingungen',ac3d:'Verwendet nur öffentliche Untertitel.',ac4h:'App Store & Play Store',ac4d:'Entspricht Apple- und Google-Richtlinien.',copy:'Kopieren',copied:'Kopiert!',gen:'Wird generiert...'}
-  };
-  const t=texts[l];
+  const t=TR_KEYS[l],p=PH[l];
   Object.keys(t).forEach(k=>{
-    const el=g(k.replace(/_/g,'-'));
-    if(el){if(k==='h_t'||k==='h_s')el.innerHTML=t[k];else el.textContent=t[k];}
+    if(k==='t_ht')return;
+    const id=k.replace(/_/g,'-');
+    const e=g(id);
+    if(e){if(t.t_ht&&k==='ht')e.innerHTML=t[k];else e.textContent=t[k];}
   });
+  // Nav special
+  s('nl-tools',t.tools);s('nl-about',t.about);s('nl-cta',t.cta);
   // Placeholders
-  const fields={job:'f-job',exp:'f-exp',edu:'f-edu',sk:'f-skills',la:'f-langs',txt:'f-txt',topic:'f-topic',industry:'f-industry'};
-  Object.entries(fields).forEach(([k,id])=>{const e=g(id);if(e)e.placeholder=p[k];});
+  const fmap={job:'f-job',exp:'f-exp',edu:'f-edu',sk:'f-skills',la:'f-langs',txt:'f-txt',topic:'f-topic',industry:'f-industry'};
+  Object.entries(fmap).forEach(([k,id])=>{const e=g(id);if(e)e.placeholder=p[k];});
+  // Copy buttons
+  ['cv-copy-btn','pdf-copy-btn','social-copy-btn','yt-copy-btn'].forEach(id=>{const e=g(id);if(e&&e.style.display!=='none')e.textContent=t.copy;});
 }
 
 function setLang(l,btn){PL=l;document.querySelectorAll('.ls').forEach(b=>b.classList.remove('on'));btn.classList.add('on');applyTR(l);}
-function setCVL(l,btn){CVL=l;document.querySelectorAll('.clopt').forEach(b=>b.classList.remove('on'));btn.classList.add('on');}
+function setCVL(l,btn){CVL=l;document.querySelectorAll('.opt').forEach(b=>b.classList.remove('on'));btn.classList.add('on');}
+function setCVTpl(t,el){CVTpl=t;document.querySelectorAll('.cv-tpl').forEach(e=>e.classList.remove('on'));el.classList.add('on');}
 function setLogoStyle(s,el){logoStyle=s;document.querySelectorAll('.style-opt').forEach(e=>e.classList.remove('on'));el.classList.add('on');}
 function setLogoColor(c,el){logoColor=c;document.querySelectorAll('.color-dot').forEach(e=>e.classList.remove('on'));el.classList.add('on');}
 function togglePlatform(p,el){if(activePlatforms.has(p)){if(activePlatforms.size>1){activePlatforms.delete(p);el.classList.remove('on');}}else{activePlatforms.add(p);el.classList.add('on');}}
 function showPage(pg){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));g('pg-'+pg).classList.add('active');window.scrollTo(0,0);}
 function toast(msg){const t=g('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2500);}
-function copyRes(id){navigator.clipboard.writeText(g(id).innerText||'').then(()=>toast('Copié !'));}
+function copyRes(id){navigator.clipboard.writeText(g(id).innerText||'').then(()=>toast(TR_KEYS[PL].copied));}
 function handlePhoto(input){const f=input.files[0];if(!f)return;const r=new FileReader();r.onload=e=>{photoB64=e.target.result;g('photo-img').src=photoB64;g('photo-img').style.display='block';g('photo-icon').style.display='none';toast('Photo ajoutée ✓');};r.readAsDataURL(f);}
-
-function previewYT(url){
-  const match=url.match(/(?:v=|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
-  const preview=g('yt-preview');
-  if(match){
-    const id=match[1];
-    g('yt-thumb-img').src=`https://img.youtube.com/vi/${id}/mqdefault.jpg`;
-    g('yt-preview-id').textContent='Video ID : '+id;
-    g('yt-preview-url').textContent=url.substring(0,50)+'...';
-    preview.style.display='flex';
-  } else {
-    preview.style.display='none';
-  }
-}
+function previewYT(url){const match=url.match(/(?:v=|youtu\.be\/)([a-zA-Z0-9_-]{11})/);const p=g('yt-preview');if(match){g('yt-thumb-img').src=`https://img.youtube.com/vi/${match[1]}/mqdefault.jpg`;g('yt-preview-id').textContent='ID : '+match[1];g('yt-preview-url').textContent=url.substring(0,50);p.style.display='flex';}else{p.style.display='none';}}
 
 function setLoad(resId,btnId,txtId,on,msg,orig){
   const btn=g(btnId);
-  if(on){btn.disabled=true;g(resId).innerHTML='<div style="display:flex;align-items:center;gap:10px;padding:2rem;color:#6B6560;font-size:13px"><div class="spin"></div>'+msg+'</div>';}
-  else{btn.disabled=false;g(txtId).textContent=orig;}
+  if(on){btn.disabled=true;g(resId).innerHTML=`<div style="display:flex;align-items:center;gap:10px;padding:2rem;color:#6B6560;font-size:13px"><div class="spin"></div>${msg}</div>`;}
+  else{btn.disabled=false;if(orig)g(txtId).textContent=orig;}
 }
 
 async function callAPI(endpoint,body){
-  const res=await fetch('/api/'+endpoint,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
-  const data=await res.json();
-  if(data.error)throw new Error(data.error);
-  return data;
+  const r=await fetch('/api/'+endpoint,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
+  const d=await r.json();
+  if(d.error)throw new Error(d.error);
+  return d;
 }
 
 // ── CV ──
 async function genCV(){
   const name=g('f-name').value.trim(),exp=g('f-exp').value.trim();
   if(!name&&!exp){toast('Renseignez au moins votre nom et vos expériences.');return;}
+  const t=TR_KEYS[PL];
   const outLang={fr:'français',en:'english',de:'german'}[CVL];
-  setLoad('cv-result-body','cv-btn','cv-btn-txt',true,'Génération en cours...','');
-  const prompt=`Expert RH. CV professionnel COMPLET en ${outLang}. Données: Nom:${name}, Poste:${g('f-job').value}, Email:${g('f-email').value}, Tél:${g('f-phone').value}, Ville:${g('f-city').value}, LinkedIn:${g('f-link').value}, Expériences:${exp}, Formation:${g('f-edu').value}, Compétences:${g('f-skills').value}, Langues:${g('f-langs').value}. HTML propre sans balises html/body. Sections: En-tête, Profil, Expériences, Formation, Compétences, Langues.`;
+  const tplName={fr:{modern:'Moderne',classic:'Classique',minimal:'Minimaliste',dark:'Sombre'},en:{modern:'Modern',classic:'Classic',minimal:'Minimal',dark:'Dark'},de:{modern:'Modern',classic:'Klassisch',minimal:'Minimal',dark:'Dunkel'}}[CVL][CVTpl];
+  setLoad('cv-result-body','cv-btn','cv-btn-txt',true,t.gen,'');
+
+  const prompt=`Generate a complete professional CV in ${outLang} language using the "${tplName}" style template.
+
+Candidate data:
+- Full name: ${name}
+- Target job: ${g('f-job').value||'Not specified'}
+- Email: ${g('f-email').value||'Not specified'}
+- Phone: ${g('f-phone').value||'Not specified'}
+- City: ${g('f-city').value||'Not specified'}
+- LinkedIn: ${g('f-link').value||'Not specified'}
+- Work experience: ${exp||'Not specified'}
+- Education: ${g('f-edu').value||'Not specified'}
+- Skills: ${g('f-skills').value||'Not specified'}
+- Languages: ${g('f-langs').value||'Not specified'}
+
+Generate a COMPLETE structured CV with these sections (all text in ${outLang}):
+1. Header: name as <h1>, job title as <p class="subtitle">, contact info as <p class="contact"> for each item
+2. Professional Profile: <h2> section title + <p> 2-3 sentence summary
+3. Work Experience: <h2> section title, then for each job: <strong>job title</strong> at <strong>company</strong> (dates), <ul><li> for each responsibility
+4. Education: <h2> section title, then each degree with institution and dates
+5. Skills: <h2> section title + <ul><li> list
+6. Languages: <h2> section title + <ul><li> list
+
+Wrap everything in: <div class="cv-out">...</div>`;
+
   try{
-    const d=await callAPI('generate',{prompt,max_tokens:1500});
-    let html=d.result;
-    if(photoB64)html=`<div style="text-align:center;margin-bottom:12px"><img src="${photoB64}" style="width:72px;height:72px;border-radius:50%;object-fit:cover;border:2px solid #E2DDD8"/></div>`+html;
-    g('cv-result-body').innerHTML='<div class="result-body">'+html+'</div>';
-    g('cv-lang-badge').textContent={fr:'Français',en:'English',de:'Deutsch'}[CVL];
+    const d=await callAPI('generate',{prompt,max_tokens:2000,type:'cv'});
+    let html=tplStyles[CVTpl]+d.result;
+    if(photoB64)html=tplStyles[CVTpl]+`<div class="cv-out" style="padding-bottom:0"><div style="text-align:center;margin-bottom:12px"><img src="${photoB64}" style="width:80px;height:80px;border-radius:50%;object-fit:cover;border:2px solid #E2DDD8"/></div></div>`+d.result.replace('<div class="cv-out">','<div class="cv-out" style="padding-top:0">');
+    g('cv-result-body').innerHTML=html;
+    g('cv-lang-badge').textContent={fr:'Français',en:'English',de:'Deutsch'}[CVL]+' · '+{modern:'Moderne',classic:'Classique',minimal:'Minimaliste',dark:'Sombre'}[CVTpl];
     g('cv-copy-btn').style.display='block';
+    g('cv-copy-btn').textContent=t.copy;
   }catch(e){g('cv-result-body').innerHTML=`<div style="padding:12px;font-size:13px;color:#922;background:#fdf0f0;border-radius:8px">Erreur : ${e.message}</div>`;}
-  setLoad('cv-result-body','cv-btn','cv-btn-txt',false,'','');
-  g('cv-btn-txt').textContent='Générer mon CV';
+  setLoad('cv-result-body','cv-btn','cv-btn-txt',false,'',t.cvbtn||'Générer mon CV');
 }
 
 // ── PDF ──
 async function genPDF(){
   const txt=g('f-txt').value.trim();
   if(!txt||txt.length<50){toast('Collez un texte d\'au moins 50 caractères.');return;}
+  const t=TR_KEYS[PL];
   const outLang={fr:'français',en:'english',de:'german'}[PL];
-  setLoad('pdf-result-body','pdf-btn','pdf-btn-txt',true,'Génération en cours...','');
-  const prompt=`Analyse ce texte en ${outLang}. HTML sans balises html/body:
-<h2>[Résumé]</h2><p>3-5 phrases</p>
-<h2>[Points clés]</h2><ul><li>5-8 points</li></ul>
-<h2>[Mots-clés]</h2><p><span class="pill">mot</span></p>
-Texte: ${txt.substring(0,4000)}`;
+  setLoad('pdf-result-body','pdf-btn','pdf-btn-txt',true,t.gen,'');
+
+  const prompt=`Summarize the following text in ${outLang}. 
+
+IMPORTANT: Write a SHORT summary that is much shorter than the original. Do NOT copy or repeat the original text.
+
+Create:
+1. A summary in 3-4 sentences maximum
+2. 5-7 key bullet points (each one sentence)
+3. 5-6 keywords
+
+Output format (raw HTML only, no markdown):
+<h2>[Summary heading in ${outLang}]</h2>
+<p>[3-4 sentence summary - be concise]</p>
+<h2>[Key points heading in ${outLang}]</h2>
+<ul>
+<li>[Key point 1 - one sentence]</li>
+<li>[Key point 2 - one sentence]</li>
+<li>[Key point 3 - one sentence]</li>
+<li>[Key point 4 - one sentence]</li>
+<li>[Key point 5 - one sentence]</li>
+</ul>
+<h2>[Keywords heading in ${outLang}]</h2>
+<p><span class="pill">word1</span> <span class="pill">word2</span> <span class="pill">word3</span> <span class="pill">word4</span> <span class="pill">word5</span></p>
+
+TEXT TO SUMMARIZE:
+${txt.substring(0,4000)}`;
+
   try{
-    const d=await callAPI('generate',{prompt,max_tokens:900});
+    const d=await callAPI('generate',{prompt,max_tokens:800,type:'summary'});
     g('pdf-result-body').innerHTML='<div class="result-body">'+d.result+'</div>';
     g('pdf-copy-btn').style.display='block';
+    g('pdf-copy-btn').textContent=t.copy;
   }catch(e){g('pdf-result-body').innerHTML=`<div style="padding:12px;font-size:13px;color:#922;background:#fdf0f0;border-radius:8px">Erreur : ${e.message}</div>`;}
-  setLoad('pdf-result-body','pdf-btn','pdf-btn-txt',false,'','');
-  g('pdf-btn-txt').textContent='Résumer le texte';
+  setLoad('pdf-result-body','pdf-btn','pdf-btn-txt',false,'',t.pdfbtn||'Résumer le texte');
 }
 
 // ── LOGO ──
 async function genLogo(){
   const company=g('f-company').value.trim();
   if(!company){toast('Entrez le nom de votre entreprise.');return;}
-  setLoad('logo-result-body','logo-btn','logo-btn-txt',true,'Création des logos...','');
+  const t=TR_KEYS[PL];
+  setLoad('logo-result-body','logo-btn','logo-btn-txt',true,t.gen,'');
   try{
     const d=await callAPI('logo',{name:company,style:logoStyle,colors:logoColor,tagline:g('f-tagline').value});
     if(!d.logos||!d.logos.length)throw new Error('Aucun logo reçu');
     let html='<div class="logos-grid">';
     d.logos.forEach((logo,i)=>{
-      const isLast=i===d.logos.length-1&&d.logos.length%2!==0;
+      const isLast=i===2&&d.logos.length===3;
       html+=`<div class="logo-card${isLast?' full':''}">
         <div class="logo-preview">${logo.svg}</div>
         <div class="logo-meta">
-          <div><div class="logo-name">${logo.name||'Variation '+(i+1)}</div><div class="logo-desc">${logo.description||''}</div></div>
-          <button class="dl-btn" onclick="downloadSVG(${i},'${company.replace(/'/g,'')}')">Télécharger</button>
+          <div><div class="logo-name">${logo.name||'Logo '+(i+1)}</div><div class="logo-desc">${logo.description||''}</div></div>
+          <button class="dl-btn" onclick="dlSVG(${i},'${company.replace(/['"]/g,'')}')">SVG</button>
         </div>
       </div>`;
     });
@@ -681,18 +701,14 @@ async function genLogo(){
     window._logos=d.logos;
     g('logo-result-body').innerHTML=html;
   }catch(e){g('logo-result-body').innerHTML=`<div style="padding:12px;font-size:13px;color:#922;background:#fdf0f0;border-radius:8px">Erreur : ${e.message}</div>`;}
-  setLoad('logo-result-body','logo-btn','logo-btn-txt',false,'','');
-  g('logo-btn-txt').textContent='Générer les logos';
+  setLoad('logo-result-body','logo-btn','logo-btn-txt',false,'',t.logobtn||'Générer les logos');
 }
 
-function downloadSVG(idx,name){
+function dlSVG(idx,name){
   if(!window._logos||!window._logos[idx])return;
-  const svg=window._logos[idx].svg;
-  const blob=new Blob([svg],{type:'image/svg+xml'});
-  const a=document.createElement('a');
-  a.href=URL.createObjectURL(blob);
-  a.download=name+'_logo_'+(idx+1)+'.svg';
-  a.click();
+  const blob=new Blob([window._logos[idx].svg],{type:'image/svg+xml'});
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);
+  a.download=name+'_logo_'+(idx+1)+'.svg';a.click();
   toast('Logo téléchargé ✓');
 }
 
@@ -700,52 +716,51 @@ function downloadSVG(idx,name){
 async function genSocial(){
   const topic=g('f-topic').value.trim();
   if(!topic){toast('Décrivez votre sujet.');return;}
-  if(!activePlatforms.size){toast('Sélectionnez au moins une plateforme.');return;}
+  const t=TR_KEYS[PL];
   const outLang={fr:'français',en:'english',de:'german'}[PL];
   const tone=g('f-tone').value;
   const industry=g('f-industry').value;
-  setLoad('social-result-body','social-btn','social-btn-txt',true,'Génération en cours...','');
+  setLoad('social-result-body','social-btn','social-btn-txt',true,t.gen,'');
 
-  const platformSpecs={
-    instagram:`Instagram post (max 2200 chars, with relevant emojis, 10-15 hashtags at the end, engaging caption)`,
-    linkedin:`LinkedIn post (professional, 150-300 words, no hashtag spam, 2-3 max, storytelling style)`,
-    twitter:`Tweet/X post (max 280 chars, punchy, optional 1-2 hashtags)`,
-    tiktok:`TikTok video script (hook 0-3sec, main content 15-60sec, call-to-action, text on screen suggestions)`
+  const specs={
+    instagram:`Instagram: engaging caption (max 2200 chars), 10-15 relevant hashtags at the end, 2-3 relevant emojis`,
+    linkedin:`LinkedIn: professional post (150-300 words), storytelling style, max 3 hashtags, no excessive emojis`,
+    twitter:`Twitter/X: punchy tweet (max 280 chars total including hashtags), 1-2 hashtags max`,
+    tiktok:`TikTok script: hook (0-3 seconds), main content (15-60 seconds), call-to-action, text on screen suggestions in brackets`
   };
 
-  const platformList=[...activePlatforms].map(p=>platformSpecs[p]).join('\n');
-  const prompt=`Tu es expert en marketing digital. Crée des posts en ${outLang} pour ce sujet: "${topic}".
-Ton: ${tone}${industry?`, Secteur: ${industry}`:''}
+  const platforms=[...activePlatforms];
+  const prompt=`Create social media posts in ${outLang} for topic: "${topic}"
+Tone: ${tone}${industry?`, Industry: ${industry}`:''}
 
-Pour chaque plateforme, génère le contenu en HTML avec ce format EXACT:
-${[...activePlatforms].map(p=>`<div class="post-card"><div class="post-card-header"><span class="post-platform">${p.charAt(0).toUpperCase()+p.slice(1)}</span></div><div class="post-content">CONTENU ICI</div></div>`).join('\n')}
+For each platform, create appropriate content. Output raw HTML only:
 
-Spécifications par plateforme:
-${platformList}
+${platforms.map(p=>`<div class="post-card"><div class="post-card-header"><span class="post-platform">${p.charAt(0).toUpperCase()+p.slice(1)}</span></div><div class="post-content">[${specs[p]} - write actual content here in ${outLang}]</div></div>`).join('\n')}
 
-Génère du vrai contenu de qualité pour chaque plateforme. HTML direct sans balises html/body.`;
+Replace the bracketed instructions with actual ${outLang} content. Make each post unique and platform-appropriate.`;
 
   try{
-    const d=await callAPI('generate',{prompt,max_tokens:2000});
+    const d=await callAPI('generate',{prompt,max_tokens:2000,type:'social'});
     g('social-result-body').innerHTML=d.result;
     g('social-copy-btn').style.display='block';
+    g('social-copy-btn').textContent=t.copy;
   }catch(e){g('social-result-body').innerHTML=`<div style="padding:12px;font-size:13px;color:#922;background:#fdf0f0;border-radius:8px">Erreur : ${e.message}</div>`;}
-  setLoad('social-result-body','social-btn','social-btn-txt',false,'','');
-  g('social-btn-txt').textContent='Générer les posts';
+  setLoad('social-result-body','social-btn','social-btn-txt',false,'',t.socialbtn||'Générer les posts');
 }
 
 // ── YOUTUBE ──
 async function genYoutube(){
   const url=g('f-yturl').value.trim();
   if(!url){toast('Collez un lien YouTube.');return;}
-  setLoad('yt-result-body','yt-btn','yt-btn-txt',true,'Récupération de la transcription...','');
+  const t=TR_KEYS[PL];
+  setLoad('yt-result-body','yt-btn','yt-btn-txt',true,t.gen,'');
   try{
     const d=await callAPI('youtube',{url,lang:PL});
     g('yt-result-body').innerHTML='<div class="result-body">'+d.result+'</div>';
     g('yt-copy-btn').style.display='block';
+    g('yt-copy-btn').textContent=t.copy;
   }catch(e){g('yt-result-body').innerHTML=`<div style="padding:12px;font-size:13px;color:#922;background:#fdf0f0;border-radius:8px">Erreur : ${e.message}</div>`;}
-  setLoad('yt-result-body','yt-btn','yt-btn-txt',false,'','');
-  g('yt-btn-txt').textContent='Résumer la vidéo';
+  setLoad('yt-result-body','yt-btn','yt-btn-txt',false,'',t.ytbtn||'Résumer la vidéo');
 }
 
 applyTR('fr');
