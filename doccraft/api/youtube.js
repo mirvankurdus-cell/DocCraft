@@ -1,17 +1,3 @@
-import { YoutubeTranscript } from 'youtube-transcript';
-
-function extractVideoId(url) {
-  const patterns = [
-    /(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)([^&\n?#]+)/,
-    /^([a-zA-Z0-9_-]{11})$/,
-  ];
-  for (const pattern of patterns) {
-    const match = url.match(pattern);
-    if (match) return match[1];
-  }
-  return null;
-}
-
 export default async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
@@ -25,53 +11,117 @@ export default async function handler(req, res) {
   const { url, lang } = req.body;
   if (!url) return res.status(400).json({ error: 'URL manquante.' });
 
-  const videoId = extractVideoId(url);
+  // Extract video ID
+  const match = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)([^&\n?#]{11})/);
+  const videoId = match ? match[1] : (url.match(/^[a-zA-Z0-9_-]{11}$/) ? url : null);
   if (!videoId) return res.status(400).json({ error: 'URL YouTube invalide. Exemple : https://youtube.com/watch?v=xxxxx' });
 
   const outLang = { fr: 'français', en: 'english', de: 'german' }[lang] || 'français';
 
   try {
-    let transcript;
-    try { transcript = await YoutubeTranscript.fetchTranscript(videoId, { lang: lang || 'fr' }); }
-    catch { try { transcript = await YoutubeTranscript.fetchTranscript(videoId, { lang: 'en' }); }
-    catch { transcript = await YoutubeTranscript.fetchTranscript(videoId); } }
-
-    if (!transcript || transcript.length === 0) {
-      return res.status(404).json({ error: 'Aucun sous-titre disponible pour cette vidéo.' });
+    // Fetch transcript using timedtext API (no npm package needed)
+    const langCodes = lang === 'fr' ? ['fr', 'fr-FR', 'en', 'en-US'] : lang === 'de' ? ['de', 'de-DE', 'en', 'en-US'] : ['en', 'en-US', 'fr'];
+    
+    let transcriptText = null;
+    
+    for (const langCode of langCodes) {
+      try {
+        const transcriptUrl = `https://www.youtube.com/api/timedtext?v=${videoId}&lang=${langCode}&fmt=json3`;
+        const tRes = await fetch(transcriptUrl, {
+          headers: { 'User-Agent': 'Mozilla/5.0 (compatible; DocCraft/1.0)' }
+        });
+        
+        if (tRes.ok) {
+          const contentType = tRes.headers.get('content-type') || '';
+          if (contentType.includes('json')) {
+            const tData = await tRes.json();
+            if (tData.events && tData.events.length > 0) {
+              const texts = tData.events
+                .filter(e => e.segs)
+                .map(e => e.segs.map(s => s.utf8 || '').join(''))
+                .filter(t => t.trim())
+                .join(' ');
+              if (texts.length > 100) {
+                transcriptText = texts;
+                break;
+              }
+            }
+          }
+        }
+      } catch (e) {
+        continue;
+      }
     }
 
-    const fullText = transcript.map(t => t.text).join(' ').substring(0, 8000);
+    // If timedtext API fails, try the list endpoint to find available tracks
+    if (!transcriptText) {
+      try {
+        const listUrl = `https://www.youtube.com/api/timedtext?v=${videoId}&type=list`;
+        const listRes = await fetch(listUrl, {
+          headers: { 'User-Agent': 'Mozilla/5.0 (compatible; DocCraft/1.0)' }
+        });
+        if (listRes.ok) {
+          const listText = await listRes.text();
+          // Extract lang codes from XML response
+          const langMatches = [...listText.matchAll(/lang_code="([^"]+)"/g)];
+          for (const m of langMatches) {
+            const lc = m[1];
+            try {
+              const tUrl = `https://www.youtube.com/api/timedtext?v=${videoId}&lang=${lc}&fmt=json3`;
+              const tRes = await fetch(tUrl, { headers: { 'User-Agent': 'Mozilla/5.0' } });
+              if (tRes.ok) {
+                const contentType = tRes.headers.get('content-type') || '';
+                if (contentType.includes('json')) {
+                  const tData = await tRes.json();
+                  if (tData.events && tData.events.length > 0) {
+                    const texts = tData.events.filter(e => e.segs).map(e => e.segs.map(s => s.utf8 || '').join('')).filter(t => t.trim()).join(' ');
+                    if (texts.length > 100) { transcriptText = texts; break; }
+                  }
+                }
+              }
+            } catch { continue; }
+          }
+        }
+      } catch (e) {}
+    }
 
-    const prompt = `You are a note-taking expert. Analyze this YouTube transcript and create a CONCISE summary in ${outLang}.
+    if (!transcriptText || transcriptText.length < 50) {
+      return res.status(404).json({
+        error: 'Sous-titres non disponibles pour cette vidéo. La vidéo doit avoir des sous-titres activés (pas générés automatiquement). Essayez une conférence TED ou une vidéo éducative.'
+      });
+    }
+
+    const truncated = transcriptText.substring(0, 6000);
+
+    const prompt = `You are a professional note-taker. Summarize this YouTube video transcript in ${outLang}.
 
 TRANSCRIPT:
-${fullText}
+${truncated}
 
-OUTPUT RULES:
-- Output ONLY raw HTML, no markdown, no backticks, no explanations
+STRICT RULES:
+- Output ONLY raw HTML - no markdown, no backticks, no explanations
+- The output must be MUCH shorter than the input (max 20% of length)
+- Never copy sentences from the transcript verbatim
 - Start directly with <h2>
-- The summary must be MUCH shorter than the transcript (max 20% of length)
-- Use this exact structure:
+- Write all headings and content in ${outLang}
 
-<h2>[Summary title in ${outLang}]</h2>
-<p>[3-4 sentences maximum summarizing the main point]</p>
-
-<h2>[Key points title in ${outLang}]</h2>
+FORMAT:
+<h2>[Summary]</h2>
+<p>3 sentences maximum capturing the main idea</p>
+<h2>[Key Points]</h2>
 <ul>
-<li><strong>[Point 1 title]</strong> : [one sentence explanation]</li>
-<li><strong>[Point 2 title]</strong> : [one sentence explanation]</li>
-<li><strong>[Point 3 title]</strong> : [one sentence explanation]</li>
-<li><strong>[Point 4 title]</strong> : [one sentence explanation]</li>
-<li><strong>[Point 5 title]</strong> : [one sentence explanation]</li>
+<li><strong>Point 1</strong>: one sentence</li>
+<li><strong>Point 2</strong>: one sentence</li>
+<li><strong>Point 3</strong>: one sentence</li>
+<li><strong>Point 4</strong>: one sentence</li>
+<li><strong>Point 5</strong>: one sentence</li>
 </ul>
+<h2>[Detailed Notes]</h2>
+<p>2-3 sentences of additional important context</p>
+<h2>[Keywords]</h2>
+<p><span class="pill">word1</span> <span class="pill">word2</span> <span class="pill">word3</span> <span class="pill">word4</span> <span class="pill">word5</span></p>`;
 
-<h2>[Detailed notes title in ${outLang}]</h2>
-<p>[2-3 sentences of additional context]</p>
-
-<h2>[Keywords title in ${outLang}]</h2>
-<p><span class="pill">keyword1</span> <span class="pill">keyword2</span> <span class="pill">keyword3</span> <span class="pill">keyword4</span> <span class="pill">keyword5</span></p>`;
-
-    const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+    const groqRes = await fetch('https://api.groq.com/openai/v1/chat/completions', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -79,29 +129,26 @@ OUTPUT RULES:
       },
       body: JSON.stringify({
         model: 'llama-3.3-70b-versatile',
-        max_tokens: 1200,
+        max_tokens: 1000,
         temperature: 0.3,
         messages: [
-          { role: 'system', content: 'You are a summarization expert. Output ONLY raw HTML. Never repeat the input text. Be concise.' },
+          { role: 'system', content: 'You are a summarization expert. Output ONLY raw HTML starting with <h2>. Never copy the input text.' },
           { role: 'user', content: prompt }
         ],
       }),
     });
 
-    const data = await response.json();
-    if (data.error) return res.status(400).json({ error: data.error.message });
+    const groqData = await groqRes.json();
+    if (groqData.error) return res.status(400).json({ error: groqData.error.message });
 
-    let result = data.choices?.[0]?.message?.content || '';
+    let result = groqData.choices?.[0]?.message?.content || '';
     result = result.replace(/```html\s*/gi, '').replace(/```\s*/gi, '').trim();
-    const firstTag = result.search(/<[a-zA-Z]/);
+    const firstTag = result.search(/<h2/i);
     if (firstTag > 0) result = result.substring(firstTag);
 
     return res.status(200).json({ result, videoId });
 
   } catch (err) {
-    if (err.message?.includes('Could not get transcripts')) {
-      return res.status(404).json({ error: 'Sous-titres non disponibles. La vidéo doit avoir des sous-titres activés.' });
-    }
-    return res.status(500).json({ error: 'Erreur : ' + err.message });
+    return res.status(500).json({ error: 'Erreur serveur : ' + err.message });
   }
 }
